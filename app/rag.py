@@ -1,23 +1,9 @@
-"""
-rag.py — Retrieval layer for the Campus Helpdesk Triage Agent.
-
-Design goals for the hackathon prototype:
-  * Only ever answer from documents in app/data/docs (the "approved sources").
-  * Zero heavy/compiled dependencies — TF-IDF + cosine similarity implemented
-    in pure Python, so it installs instantly on any machine (no C/C++ build
-    toolchain needed, unlike scikit-learn wheels on some Windows/Python
-    combinations).
-  * Returns a similarity score per document so the caller can apply
-    escalation discipline (high confidence -> answer, medium -> clarify,
-    low -> escalate to a human team).
-"""
-
 import os
 import re
 import glob
 import math
 from collections import Counter
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from typing import List, Dict, Optional
 
 DOCS_DIR = os.path.join(os.path.dirname(__file__), "data", "docs")
@@ -38,7 +24,24 @@ _TOKEN_RE = re.compile(r"[a-zA-Z]+")
 
 def _tokenize(text: str) -> List[str]:
     tokens = _TOKEN_RE.findall(text.lower())
-    return [t for t in tokens if t not in _STOPWORDS and len(t) > 1]
+    # very light stemming: strip a trailing 's' on longer words so
+    # "issue"/"issues", "ticket"/"tickets" match each other.
+    out = []
+    for t in tokens:
+        if t in _STOPWORDS or len(t) <= 1:
+            continue
+        out.append(t)
+    return out
+
+
+def _stem(t: str) -> str:
+    if len(t) > 4 and t.endswith("s") and not t.endswith("ss"):
+        return t[:-1]
+    return t
+
+
+def _tokenize_stemmed(text: str) -> List[str]:
+    return [_stem(t) for t in _tokenize(text)]
 
 
 @dataclass
@@ -52,8 +55,16 @@ class SourceDoc:
     filepath: str
 
 
+@dataclass
+class Chunk:
+    doc_id: str
+    chunk_id: str
+    heading: str
+    display_text: str   # what gets shown to the user as the answer
+    search_text: str     # heading + aliases + display_text, used only for matching
+
+
 def _parse_frontmatter(text: str):
-    """Very small YAML-ish frontmatter parser (avoids extra dependency)."""
     meta = {"title": "", "department": "", "required_info": [], "tags": []}
     if text.startswith("---"):
         end = text.find("---", 3)
@@ -82,143 +93,12 @@ class _TfidfVector:
         self.norm = math.sqrt(sum(w * w for w in weights.values())) or 1.0
 
 
-def _cosine(a: "_TfidfVector", b: "_TfidfVector") -> float:
-    # iterate over the smaller dict for speed
+def _cosine(a, b) -> float:
     if len(a.weights) > len(b.weights):
         a, b = b, a
     dot = sum(w * b.weights.get(term, 0.0) for term, w in a.weights.items())
     return dot / (a.norm * b.norm)
 
-
-class DocumentStore:
-    """Loads all trusted markdown docs and builds a pure-Python TF-IDF index."""
-
-    def __init__(self, docs_dir: str = DOCS_DIR):
-        self.docs_dir = docs_dir
-        self.documents: List[SourceDoc] = []
-        self._doc_vectors: List[_TfidfVector] = []
-        self._idf: Dict[str, float] = {}
-        self._load()
-
-    def _load(self):
-        self.documents = []
-        paths = sorted(glob.glob(os.path.join(self.docs_dir, "*.md")))
-        for path in paths:
-            with open(path, "r", encoding="utf-8") as f:
-                raw = f.read()
-            meta, body = _parse_frontmatter(raw)
-            doc_id = os.path.splitext(os.path.basename(path))[0]
-            self.documents.append(
-                SourceDoc(
-                    doc_id=doc_id,
-                    title=meta.get("title") or doc_id,
-                    department=meta.get("department", "General Helpdesk"),
-                    required_info=meta.get("required_info", []),
-                    tags=meta.get("tags", []),
-                    body=body,
-                    filepath=path,
-                )
-            )
-        self._build_index()
-
-    def _build_index(self):
-        n_docs = len(self.documents)
-        self._doc_vectors = []
-        self._idf = {}
-        if n_docs == 0:
-            return
-
-        tokenized_docs = [_tokenize(self._searchable_text(d)) for d in self.documents]
-
-        # document frequency
-        df: Counter = Counter()
-        for tokens in tokenized_docs:
-            for term in set(tokens):
-                df[term] += 1
-
-        # smoothed idf, same formula sklearn's TfidfVectorizer uses by default
-        self._idf = {
-            term: math.log((1 + n_docs) / (1 + freq)) + 1.0
-            for term, freq in df.items()
-        }
-
-        for tokens in tokenized_docs:
-            tf = Counter(tokens)
-            weights = {term: count * self._idf[term] for term, count in tf.items()}
-            self._doc_vectors.append(_TfidfVector(weights))
-
-    @staticmethod
-    def _searchable_text(doc: SourceDoc) -> str:
-        return f"{doc.title} {' '.join(doc.tags)} {doc.body}"
-
-    def reload(self):
-        self._load()
-
-    def _query_vector(self, query: str) -> _TfidfVector:
-        tokens = _tokenize(query)
-        tf = Counter(tokens)
-        weights = {
-            term: count * self._idf.get(term, 0.0)
-            for term, count in tf.items()
-            if term in self._idf
-        }
-        return _TfidfVector(weights)
-
-    def search(self, query: str, top_k: int = 3) -> List[Dict]:
-        if not self.documents or not self._idf:
-            return []
-        q_vec = self._query_vector(query)
-        if not q_vec.weights:
-            return []
-
-        query_term_count = len(q_vec.weights)
-
-        scored = []
-        for doc, vec in zip(self.documents, self._doc_vectors):
-            score = _cosine(q_vec, vec)
-            matched_terms = len(set(q_vec.weights.keys()) & set(vec.weights.keys()))
-            scored.append((score, matched_terms, doc))
-
-        # Sort by how many distinct query terms the doc actually contains FIRST,
-        # cosine score second. Pure cosine ranking lets a short doc that repeats
-        # one shared word (e.g. "timings") outscore a doc that genuinely covers
-        # every word in the query — that's exactly backwards for short queries,
-        # so term coverage has to win the sort, not just break a tie.
-        scored.sort(key=lambda x: (x[1], x[0]), reverse=True)
-
-        results = []
-        for score, matched_terms, doc in scored[:top_k]:
-            results.append(
-                {
-                    "doc_id": doc.doc_id,
-                    "title": doc.title,
-                    "department": doc.department,
-                    "required_info": doc.required_info,
-                    "score": float(score),
-                    "matched_terms": matched_terms,
-                    "query_term_count": query_term_count,
-                    "body": doc.body,
-                }
-            )
-        return results
-
-    def known_term_ratio(self, query: str) -> float:
-        """Fraction of the query's meaningful tokens that exist anywhere in the
-        approved-document vocabulary. Near-zero means the query is almost
-        certainly off-topic, regardless of what cosine score it happens to hit."""
-        tokens = _tokenize(query)
-        if not tokens:
-            return 0.0
-        known = sum(1 for t in tokens if t in self._idf)
-        return known / len(tokens)
-
-        
-
-    def get(self, doc_id: str) -> Optional[SourceDoc]:
-        for d in self.documents:
-            if d.doc_id == doc_id:
-                return d
-        return None
 
 def _split_paragraph_into_items(lines: List[str]) -> List[str]:
     items: List[str] = []
@@ -231,42 +111,232 @@ def _split_paragraph_into_items(lines: List[str]) -> List[str]:
             items[-1] = f"{items[-1]} {cleaned}"
     return items
 
-def _reconstruct_bullets(body: str) -> List[str]:
-    """Split a doc into standalone answerable chunks — one per blank-line
-    paragraph — instead of one chunk per whole doc. Heading lines (#) and
-    'Aliases:' metadata lines are dropped since they're for search matching
-    only, never meant to be shown as part of an answer. Bullet lists within
-    a paragraph still split into separate items, same as before."""
-    paragraphs = re.split(r"\n\s*\n", body.strip())
-    items: List[str] = []
-    for para in paragraphs:
-        lines = [l.strip() for l in para.splitlines() if l.strip()]
-        lines = [
-            l for l in lines
-            if not l.startswith("#") and not l.lower().startswith("aliases:")
-        ]
+
+_LABEL_ONLY_RE = re.compile(r"^\*{0,2}[A-Za-z][A-Za-z '\-]*:\*{0,2}$")
+
+
+def _is_label_only(item: str) -> bool:
+    """True for lines that are just a role/section label with no actual
+    content, e.g. '**For everyone:**' or '**For freshers:**' on its own
+    line. These should never be returned as an answer by themselves —
+    left in the index, their short, 'pure' vector (no content words to
+    dilute it) lets them out-score the real answer lines that follow
+    them, which is exactly backwards."""
+    return bool(_LABEL_ONLY_RE.match(item.strip()))
+
+
+def _chunk_document(doc_id: str, title: str, body: str) -> List[Chunk]:
+    """Split a doc into small, independently-searchable chunks.
+
+    Each '## Heading' section becomes its own context. Within a section,
+    each blank-line paragraph (and each bullet within a paragraph) becomes
+    its own chunk, but the section heading + any 'Aliases:' line for that
+    section are folded into every chunk's SEARCH text (not its displayed
+    text) so keywords like "curfew" or "plumbing issue hostel" survive and
+    stay attached to the right chunk instead of being discarded.
+    """
+    chunks: List[Chunk] = []
+    # Split on '## ' headings, keeping the heading text.
+    parts = re.split(r"\n(?=## )", body.strip())
+    running_heading = title
+    chunk_idx = 0
+
+    for part in parts:
+        lines = part.strip().splitlines()
         if not lines:
             continue
-        items.extend(_split_paragraph_into_items(lines))
-    return items
+        heading = running_heading
+        raw_paragraphs: List[tuple] = []
+        current_para: List[str] = []
+        alias_for_next_para = ""
+
+        def _flush_para():
+            nonlocal current_para, alias_for_next_para
+            if current_para:
+                raw_paragraphs.append(("\n".join(current_para), alias_for_next_para))
+                alias_for_next_para = ""
+            current_para = []
+
+        for line in lines:
+            stripped = line.strip()
+            if stripped.startswith("## "):
+                heading = stripped[3:].strip()
+                running_heading = heading
+                continue
+            if stripped.startswith("# "):
+                continue
+            if not stripped:
+                _flush_para()
+                continue
+            if stripped.lower().startswith("aliases:"):
+                # Aliases apply only to the paragraph immediately following
+                # them, not to every paragraph for the rest of the section.
+                alias_for_next_para = stripped[len("aliases:"):].strip()
+                continue
+            current_para.append(stripped)
+        _flush_para()
+
+        for para_text, para_alias in raw_paragraphs:
+            plines = [l for l in para_text.splitlines() if l.strip()]
+            if not plines:
+                continue
+            items = _split_paragraph_into_items(plines)
+            for item in items:
+                if not item.strip():
+                    continue
+                if _is_label_only(item):
+                    # e.g. "**For everyone:**" alone — never a valid answer
+                    # by itself, so don't index it as a standalone chunk.
+                    continue
+                chunk_idx += 1
+                search_text = f"{heading} {para_alias} {item}"
+                chunks.append(
+                    Chunk(
+                        doc_id=doc_id,
+                        chunk_id=f"{doc_id}#{chunk_idx}",
+                        heading=heading,
+                        display_text=item.strip(),
+                        search_text=search_text,
+                    )
+                )
+    return chunks
+
+
+class DocumentStore:
+    def __init__(self, docs_dir: str = DOCS_DIR):
+        self.docs_dir = docs_dir
+        self.documents: List[SourceDoc] = []
+        self.chunks: List[Chunk] = []
+        self._chunk_vectors: List[_TfidfVector] = []
+        self._idf: Dict[str, float] = {}
+        self._load()
+
+    def _load(self):
+        self.documents = []
+        self.chunks = []
+        paths = sorted(glob.glob(os.path.join(self.docs_dir, "*.md")))
+        for path in paths:
+            with open(path, "r", encoding="utf-8") as f:
+                raw = f.read()
+            meta, body = _parse_frontmatter(raw)
+            doc_id = os.path.splitext(os.path.basename(path))[0]
+            doc = SourceDoc(
+                doc_id=doc_id,
+                title=meta.get("title") or doc_id,
+                department=meta.get("department", "General Helpdesk"),
+                required_info=meta.get("required_info", []),
+                tags=meta.get("tags", []),
+                body=body,
+                filepath=path,
+            )
+            self.documents.append(doc)
+            doc_chunks = _chunk_document(doc_id, doc.title, body)
+            # NOTE: deliberately NOT injecting doc-level tags into every
+            # chunk here. Doc-level tags mix vocabulary from all sections
+            # (e.g. hostel.md's tags include both "mess" and "timings" for
+            # two different sections), so blanket-applying them pollutes
+            # every chunk in the doc and causes cross-section / cross-doc
+            # collisions. Each chunk already carries its own heading +
+            # that section's "Aliases:" line, which is the right-scoped
+            # vocabulary for it.
+            self.chunks.extend(doc_chunks)
+        self._build_index()
+
+    def _build_index(self):
+        n_chunks = len(self.chunks)
+        self._chunk_vectors = []
+        self._idf = {}
+        if n_chunks == 0:
+            return
+
+        tokenized = [_tokenize_stemmed(c.search_text) for c in self.chunks]
+
+        df: Counter = Counter()
+        for tokens in tokenized:
+            for term in set(tokens):
+                df[term] += 1
+
+        self._idf = {
+            term: math.log((1 + n_chunks) / (1 + freq)) + 1.0
+            for term, freq in df.items()
+        }
+
+        for tokens in tokenized:
+            tf = Counter(tokens)
+            weights = {term: count * self._idf[term] for term, count in tf.items()}
+            self._chunk_vectors.append(_TfidfVector(weights))
+
+    def reload(self):
+        self._load()
+
+    def _query_vector(self, query: str) -> _TfidfVector:
+        tokens = _tokenize_stemmed(query)
+        tf = Counter(tokens)
+        weights = {
+            term: count * self._idf.get(term, 0.0)
+            for term, count in tf.items()
+            if term in self._idf
+        }
+        return _TfidfVector(weights)
+
+    def search(self, query: str, top_k: int = 5) -> List[Dict]:
+        if not self.chunks or not self._idf:
+            return []
+        q_vec = self._query_vector(query)
+        if not q_vec.weights:
+            return []
+        query_term_count = len(q_vec.weights)
+
+        scored = []
+        for chunk, vec in zip(self.chunks, self._chunk_vectors):
+            score = _cosine(q_vec, vec)
+            matched_terms = len(set(q_vec.weights.keys()) & set(vec.weights.keys()))
+            scored.append((score, matched_terms, chunk))
+
+        scored.sort(key=lambda x: (x[1], x[0]), reverse=True)
+
+        # Collapse to best chunk per doc for the top_k doc-level results,
+        # but keep the winning chunk's text as the answer body.
+        seen_docs = set()
+        results = []
+        for score, matched_terms, chunk in scored:
+            if chunk.doc_id in seen_docs:
+                continue
+            seen_docs.add(chunk.doc_id)
+            doc = self.get(chunk.doc_id)
+            results.append(
+                {
+                    "doc_id": doc.doc_id,
+                    "title": doc.title,
+                    "department": doc.department,
+                    "required_info": doc.required_info,
+                    "score": float(score),
+                    "matched_terms": matched_terms,
+                    "query_term_count": query_term_count,
+                    "body": doc.body,
+                    "chunk_heading": chunk.heading,
+                    "chunk_text": chunk.display_text,
+                }
+            )
+            if len(results) >= top_k:
+                break
+        return results
+
+    def known_term_ratio(self, query: str) -> float:
+        tokens = _tokenize_stemmed(query)
+        if not tokens:
+            return 0.0
+        known = sum(1 for t in tokens if t in self._idf)
+        return known / len(tokens)
+
+    def get(self, doc_id: str) -> Optional[SourceDoc]:
+        for d in self.documents:
+            if d.doc_id == doc_id:
+                return d
+        return None
 
 
 def extract_best_snippet(body: str, query: str, max_sentences: int = 1) -> str:
-    """Extractive fallback: pick the most query-relevant complete bullet(s)
-    from a doc body when no LLM key is configured. Keeps the prototype fully
-    answerable offline while remaining strictly grounded in the source text."""
-    items = _reconstruct_bullets(body)
-    if not items:
-        return body[:400]
-
-    q_terms = set(_tokenize(query))
-    scored = []
-    for item in items:
-        terms = set(_tokenize(item))
-        overlap = len(q_terms & terms)
-        scored.append((overlap, item))
-    scored.sort(key=lambda x: x[0], reverse=True)
-    top = [item for score, item in scored[:max_sentences] if score > 0]
-    if not top:
-        top = items[:max_sentences]
-    return " ".join(top)
+    """Kept for backward compatibility / fallback only. With chunk-level
+    search, callers should prefer results[i]['chunk_text'] directly."""
+    return body[:400]

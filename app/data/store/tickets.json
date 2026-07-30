@@ -1841,5 +1841,394 @@
         "message": "result declaration date"
       }
     ]
+  },
+  {
+    "id": "HD-96AC4B04",
+    "session_id": "demo-c51f3njz",
+    "created_at": "2026-07-30T18:22:42.295666+00:00",
+    "status": "open",
+    "urgency": "normal",
+    "routed_to": "General Helpdesk",
+    "question": "when is snacks",
+    "reason_for_escalation": "Question remained ambiguous after a clarification attempt.",
+    "collected_info": {},
+    "conversation_context": [
+      {
+        "role": "user",
+        "message": "mess timings"
+      },
+      {
+        "role": "agent",
+        "message": "**For everyone:**\n\n(Source: Mess Timings \u2014 Hostel Administration)"
+      },
+      {
+        "role": "user",
+        "message": "when is lunch"
+      },
+      {
+        "role": "agent",
+        "message": "**Lunch:** 12:15 PM \u2013 2:15 PM\n\n(Source: Mess Timings \u2014 Hostel Administration)"
+      },
+      {
+        "role": "user",
+        "message": "when is snacks?"
+      },
+      {
+        "role": "agent",
+        "message": "Just to make sure I point you the right way \u2014 is this about Mess Timings, Academics \u2014 Syllabus, Results & Revaluation?"
+      },
+      {
+        "role": "user",
+        "message": "when is snacks"
+      }
+    ]
+  },
+  {
+    "id": "HD-580F7036",
+    "session_id": "demo-c51f3njz",
+    "created_at": "2026-07-30T18:24:02.581057+00:00",
+    "status": "open",
+    "urgency": "normal",
+    "routed_to": "General Helpdesk",
+    "question": "weather",
+    "reason_for_escalation": "Query contains little to no recognized campus-domain vocabulary.",
+    "collected_info": {},
+    "conversation_context": [
+      {
+        "role": "user",
+        "message": "mess timings"
+      },
+      {
+        "role": "agent",
+        "message": "**For everyone:**\n\n(Source: Mess Timings \u2014 Hostel Administration)"
+      },
+      {
+        "role": "user",
+        "message": "when is lunch"
+      },
+      {
+        "role": "agent",
+        "message": "**Lunch:** 12:15 PM \u2013 2:15 PM\n\n(Source: Mess Timings \u2014 Hostel Administration)"
+      },
+      {
+        "role": "user",
+        "message": "when is snacks?"
+      },
+      {
+        "role": "agent",
+        "message": "Just to make sure I point you the right way \u2014 is this about Mess Timings, Academics \u2014 Syllabus, Results & Revaluation?"
+      },
+      {
+        "role": "user",
+        "message": "when is snacks"
+      },
+      {
+        "role": "agent",
+        "message": "I still can't confidently match this to one topic, so I've escalated it as ticket HD-96AC4B04 to General Helpdesk."
+      },
+      {
+        "role": "user",
+        "message": "snacks"
+      },
+      {
+        "role": "agent",
+        "message": "Just to make sure I point you the right way \u2014 is this about Mess Timings, Academics \u2014 Syllabus, Results & Revaluation?"
+      },
+      {
+        "role": "user",
+        "message": "mess timing"
+      },
+      {
+        "role": "agent",
+        "message": "**For everyone:**\n\n(Source: Mess Timings \u2014 Hostel Administration)"
+      },
+      {
+        "role": "user",
+        "message": "dinner timing"
+      },
+      {
+        "role": "agent",
+        "message": "**Dinner:** 7:30 PM \u2013 9:30 PM\n\n(Source: Mess Timings \u2014 Hostel Administration)"
+      },
+      {
+        "role": "user",
+        "message": "hostel timing"
+      },
+      {
+        "role": "agent",
+        "message": "**For everyone:** Hostel in-time is **8:30 PM**, applicable to both boys' and girls' hostels.\n\n(Source: Hostel & Accommodation Policy \u2014 Hostel Administration)"
+      },
+      {
+        "role": "user",
+        "message": "weather"
+      }
+    ]
+  },
+  {
+    "id": "HD-813C8506",
+    "session_id": "demo-c51f3njz",
+    "created_at": "2026-07-30T18:28:46.845941+00:00",
+    "status": "open",
+    "urgency": "normal",
+    "routed_to": "General Helpdesk",
+    "question": "snacks",
+    "reason_for_escalation": "Question remained ambiguous after a clarification attempt.",
+    "collected_info": {},
+    "conversation_context": [
+      {
+        "role": "user",
+        "message": "mess timings"
+      },
+      {
+        "role": "agent",
+        "message": "**For everyone:**\n\n(Source: Mess Timings \u2014 Hostel Administration)"
+      },
+      {
+        "role": "user",
+        "message": "when is lunch"
+      },
+      {
+        "role": "agent",
+        "message": "**Lunch:** 12:15 PM \u2013 2:15 PM\n\n(Source: Mess Timings \u2014 Hostel Administration)"
+      },
+      {
+        "role": "user",
+        "message": "when is snacks?"
+      },
+      {
+        "role": "agent",
+        "message": "Just to make sure I point you the right way \u2014 is this about Mess Timings, Academics \u2014 Syllabus, Results & Revaluation?"
+      },
+      {
+        "role": "user",
+        "message": "when is snacks"
+      },
+      {
+        "role": "agent",
+        "message": "I still can't confidently match this to one topic, so I've escalated it as ticket HD-96AC4B04 to General Helpdesk."
+      },
+      {
+        "role": "user",
+        "message": "snacks"
+      },
+      {
+        "role": "agent",
+        "message": "Just to make sure I point you the right way \u2014 is this about Mess Timings, Academics \u2014 Syllabus, Results & Revaluation?"
+      },
+      {
+        "role": "user",
+        "message": "mess timing"
+      },
+      {
+        "role": "agent",
+        "message": "**For everyone:**\n\n(Source: Mess Timings \u2014 Hostel Administration)"
+      },
+      {
+        "role": "user",
+        "message": "dinner timing"
+      },
+      {
+        "role": "agent",
+        "message": "**Dinner:** 7:30 PM \u2013 9:30 PM\n\n(Source: Mess Timings \u2014 Hostel Administration)"
+      },
+      {
+        "role": "user",
+        "message": "hostel timing"
+      },
+      {
+        "role": "agent",
+        "message": "**For everyone:** Hostel in-time is **8:30 PM**, applicable to both boys' and girls' hostels.\n\n(Source: Hostel & Accommodation Policy \u2014 Hostel Administration)"
+      },
+      {
+        "role": "user",
+        "message": "weather"
+      },
+      {
+        "role": "agent",
+        "message": "That doesn't look like something I can answer from our approved campus documents, so I've created ticket HD-580F7036 for General Helpdesk to take a look."
+      },
+      {
+        "role": "user",
+        "message": "when will result come"
+      },
+      {
+        "role": "agent",
+        "message": "**For everyone:** Results are usually declared about 2 months after the exam is conducted. Exact dates are announced via VTOP notifications and official circulars \u2014 there's no fixed calendar date, so check VTOP around the 2-month mark rather than a specific day.\n\n(Source: Academics \u2014 Syllabus, Results & Revaluation \u2014 Academic Office)"
+      },
+      {
+        "role": "user",
+        "message": "hostel complaint"
+      },
+      {
+        "role": "agent",
+        "message": "**For everyone:** Maintenance issues should be reported to the Warden's office for your block, or filed directly online at **https://snm.vitbhopal.ac.in/hc/en**.\n\n(Source: Hostel & Accommodation Policy \u2014 Hostel Administration)"
+      },
+      {
+        "role": "user",
+        "message": "examination schedule"
+      },
+      {
+        "role": "agent",
+        "message": "Students missing an exam due to a medical emergency may apply for a **special exam** within 3 days of the missed exam, with supporting medical documentation, approved by the Controller of Examinations.\n\n(Source: Examination Schedule & Procedures \u2014 Examination Cell)"
+      },
+      {
+        "role": "user",
+        "message": "hall tickets"
+      },
+      {
+        "role": "agent",
+        "message": "Hall tickets are released **1 week before exams** on the Student Portal and require no-dues clearance from the Library and Finance Office.\n\n(Source: Examination Schedule & Procedures \u2014 Examination Cell)"
+      },
+      {
+        "role": "user",
+        "message": "library timing"
+      },
+      {
+        "role": "agent",
+        "message": "**For everyone:** The library is open from **8:30 AM to 8:30 PM**, every day it operates.\n\n(Source: Library Timings & Facilities \u2014 Library)"
+      },
+      {
+        "role": "user",
+        "message": "syllabus"
+      },
+      {
+        "role": "agent",
+        "message": "**For everyone:** The syllabus is available on VTOP. Go to **Academics \u2192 Curriculum** to view and download the syllabus for your program and branch.\n\n(Source: Academics \u2014 Syllabus, Results & Revaluation \u2014 Academic Office)"
+      },
+      {
+        "role": "user",
+        "message": "clinic"
+      },
+      {
+        "role": "agent",
+        "message": "**For everyone:** The campus clinic (Dr. Morepen) operates **24x7**, with medicines available on-site.\n\n(Source: Clinic Timings & Emergency Medical Support \u2014 Campus Clinic)"
+      },
+      {
+        "role": "user",
+        "message": "breakfast"
+      },
+      {
+        "role": "agent",
+        "message": "**Breakfast:** 7:30 AM \u2013 9:30 AM\n\n(Source: Mess Timings \u2014 Hostel Administration)"
+      },
+      {
+        "role": "user",
+        "message": "snacks"
+      },
+      {
+        "role": "agent",
+        "message": "Just to make sure I point you the right way \u2014 is this about Mess Timings, Academics \u2014 Syllabus, Results & Revaluation?"
+      },
+      {
+        "role": "user",
+        "message": "snacks"
+      }
+    ]
+  },
+  {
+    "id": "HD-BD8F6784",
+    "session_id": "demo-ubkckhrq",
+    "created_at": "2026-07-30T18:31:41.927115+00:00",
+    "status": "open",
+    "urgency": "normal",
+    "routed_to": "General Helpdesk",
+    "question": "re-eval",
+    "reason_for_escalation": "Question remained ambiguous after a clarification attempt.",
+    "collected_info": {},
+    "conversation_context": [
+      {
+        "role": "user",
+        "message": "snacks"
+      },
+      {
+        "role": "agent",
+        "message": "**Snacks:** 5:00 PM \u2013 6:30 PM\n\n(Source: Mess Timings \u2014 Hostel Administration)"
+      },
+      {
+        "role": "user",
+        "message": "syllabus"
+      },
+      {
+        "role": "agent",
+        "message": "**For everyone:** The syllabus is available on VTOP. Go to **Academics \u2192 Curriculum** to view and download the syllabus for your program and branch.\n\n(Source: Academics \u2014 Syllabus, Results & Revaluation \u2014 Academic Office)"
+      },
+      {
+        "role": "user",
+        "message": "dinner"
+      },
+      {
+        "role": "agent",
+        "message": "**Dinner:** 7:30 PM \u2013 9:30 PM\n\n(Source: Mess Timings \u2014 Hostel Administration)"
+      },
+      {
+        "role": "user",
+        "message": "reval"
+      },
+      {
+        "role": "agent",
+        "message": "Just to make sure I point you the right way \u2014 is this about Academics \u2014 Syllabus, Results & Revaluation, Examination Schedule & Procedures?"
+      },
+      {
+        "role": "user",
+        "message": "re-eval"
+      }
+    ]
+  },
+  {
+    "id": "HD-15A63DEE",
+    "session_id": "demo-ubkckhrq",
+    "created_at": "2026-07-30T18:31:49.356956+00:00",
+    "status": "open",
+    "urgency": "normal",
+    "routed_to": "General Helpdesk",
+    "question": "reevaluation",
+    "reason_for_escalation": "Query contains little to no recognized campus-domain vocabulary.",
+    "collected_info": {},
+    "conversation_context": [
+      {
+        "role": "user",
+        "message": "snacks"
+      },
+      {
+        "role": "agent",
+        "message": "**Snacks:** 5:00 PM \u2013 6:30 PM\n\n(Source: Mess Timings \u2014 Hostel Administration)"
+      },
+      {
+        "role": "user",
+        "message": "syllabus"
+      },
+      {
+        "role": "agent",
+        "message": "**For everyone:** The syllabus is available on VTOP. Go to **Academics \u2192 Curriculum** to view and download the syllabus for your program and branch.\n\n(Source: Academics \u2014 Syllabus, Results & Revaluation \u2014 Academic Office)"
+      },
+      {
+        "role": "user",
+        "message": "dinner"
+      },
+      {
+        "role": "agent",
+        "message": "**Dinner:** 7:30 PM \u2013 9:30 PM\n\n(Source: Mess Timings \u2014 Hostel Administration)"
+      },
+      {
+        "role": "user",
+        "message": "reval"
+      },
+      {
+        "role": "agent",
+        "message": "Just to make sure I point you the right way \u2014 is this about Academics \u2014 Syllabus, Results & Revaluation, Examination Schedule & Procedures?"
+      },
+      {
+        "role": "user",
+        "message": "re-eval"
+      },
+      {
+        "role": "agent",
+        "message": "I still can't confidently match this to one topic, so I've escalated it as ticket HD-BD8F6784 to General Helpdesk."
+      },
+      {
+        "role": "user",
+        "message": "reevaluation"
+      }
+    ]
   }
 ]

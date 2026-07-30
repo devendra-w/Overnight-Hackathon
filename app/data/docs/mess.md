@@ -6,7 +6,7 @@ tags: [mess, timings, breakfast, lunch, snacks, dinner, food, meal times]
 ---
 
 ## Mess Timings
-Aliases: what are mess timings, when is breakfast, when is lunch, when is dinner, mess hours, food timings
+Aliases: what are mess timings, when is breakfast, when is lunch, when is dinner, mess hours, food timings, snacks
 
 **For everyone:**
 - **Breakfast:** 7:30 AM – 9:30 AM
