@@ -129,14 +129,18 @@ def _chunk_document(doc_id: str, title: str, body: str) -> List[Chunk]:
     """Split a doc into small, independently-searchable chunks.
 
     Each '## Heading' section becomes its own context. Within a section,
-    each blank-line paragraph (and each bullet within a paragraph) becomes
-    its own chunk, but the section heading + any 'Aliases:' line for that
-    section are folded into every chunk's SEARCH text (not its displayed
-    text) so keywords like "curfew" or "plumbing issue hostel" survive and
-    stay attached to the right chunk instead of being discarded.
+    a '### Subheading' (e.g. a day name in a weekly menu) does NOT become
+    its own chunk — it has no content by itself — instead it's folded into
+    both the search text and the displayed text of every chunk that follows
+    it, until the next '###' or '##' boundary. Each blank-line paragraph
+    (and each bullet within it) becomes its own chunk, and the section
+    heading + subheading + that section's 'Aliases:' line are folded into
+    every chunk's SEARCH text (not necessarily its displayed text) so
+    keywords like "curfew", "plumbing issue hostel", or "friday" survive
+    and stay attached to the right chunk instead of being discarded or
+    becoming a blank standalone answer.
     """
     chunks: List[Chunk] = []
-    # Split on '## ' headings, keeping the heading text.
     parts = re.split(r"\n(?=## )", body.strip())
     running_heading = title
     chunk_idx = 0
@@ -146,6 +150,7 @@ def _chunk_document(doc_id: str, title: str, body: str) -> List[Chunk]:
         if not lines:
             continue
         heading = running_heading
+        sub_heading = ""
         raw_paragraphs: List[tuple] = []
         current_para: List[str] = []
         alias_for_next_para = ""
@@ -153,7 +158,9 @@ def _chunk_document(doc_id: str, title: str, body: str) -> List[Chunk]:
         def _flush_para():
             nonlocal current_para, alias_for_next_para
             if current_para:
-                raw_paragraphs.append(("\n".join(current_para), alias_for_next_para))
+                raw_paragraphs.append(
+                    ("\n".join(current_para), alias_for_next_para, sub_heading)
+                )
                 alias_for_next_para = ""
             current_para = []
 
@@ -162,6 +169,15 @@ def _chunk_document(doc_id: str, title: str, body: str) -> List[Chunk]:
             if stripped.startswith("## "):
                 heading = stripped[3:].strip()
                 running_heading = heading
+                sub_heading = ""
+                alias_for_next_para = ""   # <-- add this line too
+                continue
+            if stripped.startswith("### "):
+                _flush_para()
+                alias_for_next_para = ""  # don't let a stale section-level
+                                           # alias leak into whichever day
+                                           # happens to be chunked first
+                sub_heading = stripped[4:].strip()
                 continue
             if stripped.startswith("# "):
                 continue
@@ -169,14 +185,12 @@ def _chunk_document(doc_id: str, title: str, body: str) -> List[Chunk]:
                 _flush_para()
                 continue
             if stripped.lower().startswith("aliases:"):
-                # Aliases apply only to the paragraph immediately following
-                # them, not to every paragraph for the rest of the section.
                 alias_for_next_para = stripped[len("aliases:"):].strip()
                 continue
             current_para.append(stripped)
         _flush_para()
 
-        for para_text, para_alias in raw_paragraphs:
+        for para_text, para_alias, para_sub in raw_paragraphs:
             plines = [l for l in para_text.splitlines() if l.strip()]
             if not plines:
                 continue
@@ -185,17 +199,16 @@ def _chunk_document(doc_id: str, title: str, body: str) -> List[Chunk]:
                 if not item.strip():
                     continue
                 if _is_label_only(item):
-                    # e.g. "**For everyone:**" alone — never a valid answer
-                    # by itself, so don't index it as a standalone chunk.
                     continue
                 chunk_idx += 1
-                search_text = f"{heading} {para_alias} {item}"
+                search_text = f"{heading} {para_sub} {para_alias} {item}"
+                display_text = f"{para_sub} — {item.strip()}" if para_sub else item.strip()
                 chunks.append(
                     Chunk(
                         doc_id=doc_id,
                         chunk_id=f"{doc_id}#{chunk_idx}",
-                        heading=heading,
-                        display_text=item.strip(),
+                        heading=f"{heading} — {para_sub}" if para_sub else heading,
+                        display_text=display_text,
                         search_text=search_text,
                     )
                 )
