@@ -369,5 +369,1477 @@
         "message": "Hostel"
       }
     ]
+  },
+  {
+    "id": "HD-A95FD913",
+    "session_id": "demo-330cn2h4",
+    "created_at": "2026-07-30T16:31:43.918673+00:00",
+    "status": "open",
+    "urgency": "normal",
+    "routed_to": "Examination Cell",
+    "question": "examination schedule",
+    "reason_for_escalation": "Question remained ambiguous after a clarification attempt.",
+    "collected_info": {},
+    "conversation_context": [
+      {
+        "role": "user",
+        "message": "When is the fee payment deadline?"
+      },
+      {
+        "role": "agent",
+        "message": "I can help with that. What's your semester?"
+      },
+      {
+        "role": "user",
+        "message": "2nd"
+      },
+      {
+        "role": "agent",
+        "message": "Thanks. And what's your program?"
+      },
+      {
+        "role": "user",
+        "message": "aiml"
+      },
+      {
+        "role": "agent",
+        "message": "**For freshers:** Your full-year fee is paid as a **one-time payment before the start of the academic year**, as part of onboarding \u2014 this happens before you join, not per semester like returning students.\n\n(Source: Semester Fee Payment Deadlines \u2014 Finance Office)"
+      },
+      {
+        "role": "user",
+        "message": "How much attendance do I need for exams?"
+      },
+      {
+        "role": "agent",
+        "message": "I can help with that. What's your department?"
+      },
+      {
+        "role": "user",
+        "message": "aiml"
+      },
+      {
+        "role": "agent",
+        "message": "Minimum attendance required to sit for end-semester exams: **75%** per course.\n\n(Source: Student Leave & Attendance Policy \u2014 Academic Office)"
+      },
+      {
+        "role": "user",
+        "message": "When are hall tickets released?"
+      },
+      {
+        "role": "agent",
+        "message": "Just to make sure I point you the right way \u2014 is this about Examination Schedule & Procedures, Academics \u2014 Syllabus, Results & Revaluation?"
+      },
+      {
+        "role": "user",
+        "message": "examination schedule"
+      }
+    ]
+  },
+  {
+    "id": "HD-E604AE4E",
+    "session_id": "demo-330cn2h4",
+    "created_at": "2026-07-30T16:32:33.445665+00:00",
+    "status": "open",
+    "urgency": "normal",
+    "routed_to": "General Helpdesk",
+    "question": "when is lunch",
+    "reason_for_escalation": "Question remained ambiguous after a clarification attempt.",
+    "collected_info": {},
+    "conversation_context": [
+      {
+        "role": "user",
+        "message": "When is the fee payment deadline?"
+      },
+      {
+        "role": "agent",
+        "message": "I can help with that. What's your semester?"
+      },
+      {
+        "role": "user",
+        "message": "2nd"
+      },
+      {
+        "role": "agent",
+        "message": "Thanks. And what's your program?"
+      },
+      {
+        "role": "user",
+        "message": "aiml"
+      },
+      {
+        "role": "agent",
+        "message": "**For freshers:** Your full-year fee is paid as a **one-time payment before the start of the academic year**, as part of onboarding \u2014 this happens before you join, not per semester like returning students.\n\n(Source: Semester Fee Payment Deadlines \u2014 Finance Office)"
+      },
+      {
+        "role": "user",
+        "message": "How much attendance do I need for exams?"
+      },
+      {
+        "role": "agent",
+        "message": "I can help with that. What's your department?"
+      },
+      {
+        "role": "user",
+        "message": "aiml"
+      },
+      {
+        "role": "agent",
+        "message": "Minimum attendance required to sit for end-semester exams: **75%** per course.\n\n(Source: Student Leave & Attendance Policy \u2014 Academic Office)"
+      },
+      {
+        "role": "user",
+        "message": "When are hall tickets released?"
+      },
+      {
+        "role": "agent",
+        "message": "Just to make sure I point you the right way \u2014 is this about Examination Schedule & Procedures, Academics \u2014 Syllabus, Results & Revaluation?"
+      },
+      {
+        "role": "user",
+        "message": "examination schedule"
+      },
+      {
+        "role": "agent",
+        "message": "I still can't confidently match this to one topic, so I've escalated it as ticket HD-A95FD913 to Examination Cell."
+      },
+      {
+        "role": "user",
+        "message": "library hours"
+      },
+      {
+        "role": "agent",
+        "message": "**For everyone:** The library is open from **8:30 AM to 8:30 PM**, every day it operates.\n\n(Source: Library Timings & Facilities \u2014 Library)"
+      },
+      {
+        "role": "user",
+        "message": "lunch"
+      },
+      {
+        "role": "agent",
+        "message": "Just to make sure I point you the right way \u2014 is this about Mess Timings, Academics \u2014 Syllabus, Results & Revaluation?"
+      },
+      {
+        "role": "user",
+        "message": "when is lunch"
+      }
+    ]
+  },
+  {
+    "id": "HD-97AC0893",
+    "session_id": "demo-330cn2h4",
+    "created_at": "2026-07-30T16:32:41.392556+00:00",
+    "status": "open",
+    "urgency": "normal",
+    "routed_to": "General Helpdesk",
+    "question": "mess",
+    "reason_for_escalation": "Question remained ambiguous after a clarification attempt.",
+    "collected_info": {},
+    "conversation_context": [
+      {
+        "role": "user",
+        "message": "When is the fee payment deadline?"
+      },
+      {
+        "role": "agent",
+        "message": "I can help with that. What's your semester?"
+      },
+      {
+        "role": "user",
+        "message": "2nd"
+      },
+      {
+        "role": "agent",
+        "message": "Thanks. And what's your program?"
+      },
+      {
+        "role": "user",
+        "message": "aiml"
+      },
+      {
+        "role": "agent",
+        "message": "**For freshers:** Your full-year fee is paid as a **one-time payment before the start of the academic year**, as part of onboarding \u2014 this happens before you join, not per semester like returning students.\n\n(Source: Semester Fee Payment Deadlines \u2014 Finance Office)"
+      },
+      {
+        "role": "user",
+        "message": "How much attendance do I need for exams?"
+      },
+      {
+        "role": "agent",
+        "message": "I can help with that. What's your department?"
+      },
+      {
+        "role": "user",
+        "message": "aiml"
+      },
+      {
+        "role": "agent",
+        "message": "Minimum attendance required to sit for end-semester exams: **75%** per course.\n\n(Source: Student Leave & Attendance Policy \u2014 Academic Office)"
+      },
+      {
+        "role": "user",
+        "message": "When are hall tickets released?"
+      },
+      {
+        "role": "agent",
+        "message": "Just to make sure I point you the right way \u2014 is this about Examination Schedule & Procedures, Academics \u2014 Syllabus, Results & Revaluation?"
+      },
+      {
+        "role": "user",
+        "message": "examination schedule"
+      },
+      {
+        "role": "agent",
+        "message": "I still can't confidently match this to one topic, so I've escalated it as ticket HD-A95FD913 to Examination Cell."
+      },
+      {
+        "role": "user",
+        "message": "library hours"
+      },
+      {
+        "role": "agent",
+        "message": "**For everyone:** The library is open from **8:30 AM to 8:30 PM**, every day it operates.\n\n(Source: Library Timings & Facilities \u2014 Library)"
+      },
+      {
+        "role": "user",
+        "message": "lunch"
+      },
+      {
+        "role": "agent",
+        "message": "Just to make sure I point you the right way \u2014 is this about Mess Timings, Academics \u2014 Syllabus, Results & Revaluation?"
+      },
+      {
+        "role": "user",
+        "message": "when is lunch"
+      },
+      {
+        "role": "agent",
+        "message": "I still can't confidently match this to one topic, so I've escalated it as ticket HD-E604AE4E to General Helpdesk."
+      },
+      {
+        "role": "user",
+        "message": "snacks"
+      },
+      {
+        "role": "agent",
+        "message": "Just to make sure I point you the right way \u2014 is this about Mess Timings, Academics \u2014 Syllabus, Results & Revaluation?"
+      },
+      {
+        "role": "user",
+        "message": "mess"
+      }
+    ]
+  },
+  {
+    "id": "HD-1EE0289D",
+    "session_id": "demo-330cn2h4",
+    "created_at": "2026-07-30T16:37:35.473233+00:00",
+    "status": "open",
+    "urgency": "normal",
+    "routed_to": "Finance Office",
+    "question": "how do i pay fees",
+    "reason_for_escalation": "Question remained ambiguous after a clarification attempt.",
+    "collected_info": {},
+    "conversation_context": [
+      {
+        "role": "user",
+        "message": "When is the fee payment deadline?"
+      },
+      {
+        "role": "agent",
+        "message": "I can help with that. What's your semester?"
+      },
+      {
+        "role": "user",
+        "message": "2nd"
+      },
+      {
+        "role": "agent",
+        "message": "Thanks. And what's your program?"
+      },
+      {
+        "role": "user",
+        "message": "aiml"
+      },
+      {
+        "role": "agent",
+        "message": "**For freshers:** Your full-year fee is paid as a **one-time payment before the start of the academic year**, as part of onboarding \u2014 this happens before you join, not per semester like returning students.\n\n(Source: Semester Fee Payment Deadlines \u2014 Finance Office)"
+      },
+      {
+        "role": "user",
+        "message": "How much attendance do I need for exams?"
+      },
+      {
+        "role": "agent",
+        "message": "I can help with that. What's your department?"
+      },
+      {
+        "role": "user",
+        "message": "aiml"
+      },
+      {
+        "role": "agent",
+        "message": "Minimum attendance required to sit for end-semester exams: **75%** per course.\n\n(Source: Student Leave & Attendance Policy \u2014 Academic Office)"
+      },
+      {
+        "role": "user",
+        "message": "When are hall tickets released?"
+      },
+      {
+        "role": "agent",
+        "message": "Just to make sure I point you the right way \u2014 is this about Examination Schedule & Procedures, Academics \u2014 Syllabus, Results & Revaluation?"
+      },
+      {
+        "role": "user",
+        "message": "examination schedule"
+      },
+      {
+        "role": "agent",
+        "message": "I still can't confidently match this to one topic, so I've escalated it as ticket HD-A95FD913 to Examination Cell."
+      },
+      {
+        "role": "user",
+        "message": "library hours"
+      },
+      {
+        "role": "agent",
+        "message": "**For everyone:** The library is open from **8:30 AM to 8:30 PM**, every day it operates.\n\n(Source: Library Timings & Facilities \u2014 Library)"
+      },
+      {
+        "role": "user",
+        "message": "lunch"
+      },
+      {
+        "role": "agent",
+        "message": "Just to make sure I point you the right way \u2014 is this about Mess Timings, Academics \u2014 Syllabus, Results & Revaluation?"
+      },
+      {
+        "role": "user",
+        "message": "when is lunch"
+      },
+      {
+        "role": "agent",
+        "message": "I still can't confidently match this to one topic, so I've escalated it as ticket HD-E604AE4E to General Helpdesk."
+      },
+      {
+        "role": "user",
+        "message": "snacks"
+      },
+      {
+        "role": "agent",
+        "message": "Just to make sure I point you the right way \u2014 is this about Mess Timings, Academics \u2014 Syllabus, Results & Revaluation?"
+      },
+      {
+        "role": "user",
+        "message": "mess"
+      },
+      {
+        "role": "agent",
+        "message": "I still can't confidently match this to one topic, so I've escalated it as ticket HD-97AC0893 to General Helpdesk."
+      },
+      {
+        "role": "user",
+        "message": "mess hours"
+      },
+      {
+        "role": "agent",
+        "message": "**For freshers:** Meals are only served within these windows \u2014 there's no walk-in service outside these hours, so plan around them, especially if you have back-to-back classes or labs near lunch/dinner time.\n\n(Source: Mess Timings \u2014 Hostel Administration)"
+      },
+      {
+        "role": "user",
+        "message": "mess hours"
+      },
+      {
+        "role": "agent",
+        "message": "**For freshers:** Meals are only served within these windows \u2014 there's no walk-in service outside these hours, so plan around them, especially if you have back-to-back classes or labs near lunch/dinner time.\n\n(Source: Mess Timings \u2014 Hostel Administration)"
+      },
+      {
+        "role": "user",
+        "message": "wifi issue"
+      },
+      {
+        "role": "agent",
+        "message": "Try in order: 1. Confirm you're using the Wi-Fi ID/password sent by CTS via email (not your VTOP login). 2. Re-check the certificate was accepted via TOFU when you first connected. 3. If you've changed devices recently, this is very likely a MAC address registration issue. 4. If still unresolved, email **cts@vitbhopal.ac.in** directly with your device details and the issue.\n\n(Source: IT Services \u2014 Portal Password & Wi-Fi \u2014 CTS (Computer & Technical Services))"
+      },
+      {
+        "role": "user",
+        "message": "forgot password"
+      },
+      {
+        "role": "agent",
+        "message": "**For everyone:** Use the \"Forgot Password\" option directly on the VTOP login page. If that doesn't resolve it, contact CTS at **cts@vitbhopal.ac.in**.\n\n(Source: IT Services \u2014 Portal Password & Wi-Fi \u2014 CTS (Computer & Technical Services))"
+      },
+      {
+        "role": "user",
+        "message": "id card"
+      },
+      {
+        "role": "agent",
+        "message": "New students receive their ID card during orientation week from the Administration Office.\n\n(Source: Student ID Card & Campus Access \u2014 Administration Office)"
+      },
+      {
+        "role": "user",
+        "message": "clinic hours"
+      },
+      {
+        "role": "agent",
+        "message": "**For everyone:** Yes \u2014 the clinic operates round the clock, so emergency medical support is available at any hour, not just during standard daytime hours.\n\n(Source: Clinic Timings & Emergency Medical Support \u2014 Campus Clinic)"
+      },
+      {
+        "role": "user",
+        "message": "doctor"
+      },
+      {
+        "role": "agent",
+        "message": "Just to make sure I point you the right way \u2014 is this about Clinic Timings & Emergency Medical Support, Mess Timings?"
+      },
+      {
+        "role": "user",
+        "message": "what are clinic timings"
+      },
+      {
+        "role": "agent",
+        "message": "**For everyone:** The campus clinic (Dr. Morepen) operates **24x7**, with medicines available on-site.\n\n(Source: Clinic Timings & Emergency Medical Support \u2014 Campus Clinic)"
+      },
+      {
+        "role": "user",
+        "message": "when is dee due"
+      },
+      {
+        "role": "agent",
+        "message": "Just to make sure I point you the right way \u2014 is this about Semester Fee Payment Deadlines, Examination Schedule & Procedures?"
+      },
+      {
+        "role": "user",
+        "message": "how do i pay fees"
+      }
+    ]
+  },
+  {
+    "id": "HD-8AF8EEB9",
+    "session_id": "demo-330cn2h4",
+    "created_at": "2026-07-30T16:41:31.131898+00:00",
+    "status": "open",
+    "urgency": "normal",
+    "routed_to": "General Helpdesk",
+    "question": "Mess timings",
+    "reason_for_escalation": "Question remained ambiguous after a clarification attempt.",
+    "collected_info": {},
+    "conversation_context": [
+      {
+        "role": "user",
+        "message": "When is the fee payment deadline?"
+      },
+      {
+        "role": "agent",
+        "message": "I can help with that. What's your semester?"
+      },
+      {
+        "role": "user",
+        "message": "2nd"
+      },
+      {
+        "role": "agent",
+        "message": "Thanks. And what's your program?"
+      },
+      {
+        "role": "user",
+        "message": "aiml"
+      },
+      {
+        "role": "agent",
+        "message": "**For freshers:** Your full-year fee is paid as a **one-time payment before the start of the academic year**, as part of onboarding \u2014 this happens before you join, not per semester like returning students.\n\n(Source: Semester Fee Payment Deadlines \u2014 Finance Office)"
+      },
+      {
+        "role": "user",
+        "message": "How much attendance do I need for exams?"
+      },
+      {
+        "role": "agent",
+        "message": "I can help with that. What's your department?"
+      },
+      {
+        "role": "user",
+        "message": "aiml"
+      },
+      {
+        "role": "agent",
+        "message": "Minimum attendance required to sit for end-semester exams: **75%** per course.\n\n(Source: Student Leave & Attendance Policy \u2014 Academic Office)"
+      },
+      {
+        "role": "user",
+        "message": "When are hall tickets released?"
+      },
+      {
+        "role": "agent",
+        "message": "Just to make sure I point you the right way \u2014 is this about Examination Schedule & Procedures, Academics \u2014 Syllabus, Results & Revaluation?"
+      },
+      {
+        "role": "user",
+        "message": "examination schedule"
+      },
+      {
+        "role": "agent",
+        "message": "I still can't confidently match this to one topic, so I've escalated it as ticket HD-A95FD913 to Examination Cell."
+      },
+      {
+        "role": "user",
+        "message": "library hours"
+      },
+      {
+        "role": "agent",
+        "message": "**For everyone:** The library is open from **8:30 AM to 8:30 PM**, every day it operates.\n\n(Source: Library Timings & Facilities \u2014 Library)"
+      },
+      {
+        "role": "user",
+        "message": "lunch"
+      },
+      {
+        "role": "agent",
+        "message": "Just to make sure I point you the right way \u2014 is this about Mess Timings, Academics \u2014 Syllabus, Results & Revaluation?"
+      },
+      {
+        "role": "user",
+        "message": "when is lunch"
+      },
+      {
+        "role": "agent",
+        "message": "I still can't confidently match this to one topic, so I've escalated it as ticket HD-E604AE4E to General Helpdesk."
+      },
+      {
+        "role": "user",
+        "message": "snacks"
+      },
+      {
+        "role": "agent",
+        "message": "Just to make sure I point you the right way \u2014 is this about Mess Timings, Academics \u2014 Syllabus, Results & Revaluation?"
+      },
+      {
+        "role": "user",
+        "message": "mess"
+      },
+      {
+        "role": "agent",
+        "message": "I still can't confidently match this to one topic, so I've escalated it as ticket HD-97AC0893 to General Helpdesk."
+      },
+      {
+        "role": "user",
+        "message": "mess hours"
+      },
+      {
+        "role": "agent",
+        "message": "**For freshers:** Meals are only served within these windows \u2014 there's no walk-in service outside these hours, so plan around them, especially if you have back-to-back classes or labs near lunch/dinner time.\n\n(Source: Mess Timings \u2014 Hostel Administration)"
+      },
+      {
+        "role": "user",
+        "message": "mess hours"
+      },
+      {
+        "role": "agent",
+        "message": "**For freshers:** Meals are only served within these windows \u2014 there's no walk-in service outside these hours, so plan around them, especially if you have back-to-back classes or labs near lunch/dinner time.\n\n(Source: Mess Timings \u2014 Hostel Administration)"
+      },
+      {
+        "role": "user",
+        "message": "wifi issue"
+      },
+      {
+        "role": "agent",
+        "message": "Try in order: 1. Confirm you're using the Wi-Fi ID/password sent by CTS via email (not your VTOP login). 2. Re-check the certificate was accepted via TOFU when you first connected. 3. If you've changed devices recently, this is very likely a MAC address registration issue. 4. If still unresolved, email **cts@vitbhopal.ac.in** directly with your device details and the issue.\n\n(Source: IT Services \u2014 Portal Password & Wi-Fi \u2014 CTS (Computer & Technical Services))"
+      },
+      {
+        "role": "user",
+        "message": "forgot password"
+      },
+      {
+        "role": "agent",
+        "message": "**For everyone:** Use the \"Forgot Password\" option directly on the VTOP login page. If that doesn't resolve it, contact CTS at **cts@vitbhopal.ac.in**.\n\n(Source: IT Services \u2014 Portal Password & Wi-Fi \u2014 CTS (Computer & Technical Services))"
+      },
+      {
+        "role": "user",
+        "message": "id card"
+      },
+      {
+        "role": "agent",
+        "message": "New students receive their ID card during orientation week from the Administration Office.\n\n(Source: Student ID Card & Campus Access \u2014 Administration Office)"
+      },
+      {
+        "role": "user",
+        "message": "clinic hours"
+      },
+      {
+        "role": "agent",
+        "message": "**For everyone:** Yes \u2014 the clinic operates round the clock, so emergency medical support is available at any hour, not just during standard daytime hours.\n\n(Source: Clinic Timings & Emergency Medical Support \u2014 Campus Clinic)"
+      },
+      {
+        "role": "user",
+        "message": "doctor"
+      },
+      {
+        "role": "agent",
+        "message": "Just to make sure I point you the right way \u2014 is this about Clinic Timings & Emergency Medical Support, Mess Timings?"
+      },
+      {
+        "role": "user",
+        "message": "what are clinic timings"
+      },
+      {
+        "role": "agent",
+        "message": "**For everyone:** The campus clinic (Dr. Morepen) operates **24x7**, with medicines available on-site.\n\n(Source: Clinic Timings & Emergency Medical Support \u2014 Campus Clinic)"
+      },
+      {
+        "role": "user",
+        "message": "when is dee due"
+      },
+      {
+        "role": "agent",
+        "message": "Just to make sure I point you the right way \u2014 is this about Semester Fee Payment Deadlines, Examination Schedule & Procedures?"
+      },
+      {
+        "role": "user",
+        "message": "how do i pay fees"
+      },
+      {
+        "role": "agent",
+        "message": "I still can't confidently match this to one topic, so I've escalated it as ticket HD-1EE0289D to Finance Office."
+      },
+      {
+        "role": "user",
+        "message": "syllabus pdf"
+      },
+      {
+        "role": "user",
+        "message": "syllabus pdf"
+      },
+      {
+        "role": "user",
+        "message": "course curriculum"
+      },
+      {
+        "role": "agent",
+        "message": "**For everyone:** The syllabus is available on VTOP. Go to **Academics \u2192 Curriculum** to view and download the syllabus for your program and branch.\n\n(Source: Academics \u2014 Syllabus, Results & Revaluation \u2014 Academic Office)"
+      },
+      {
+        "role": "agent",
+        "message": "**For everyone:** The syllabus is available on VTOP. Go to **Academics \u2192 Curriculum** to view and download the syllabus for your program and branch.\n\n(Source: Academics \u2014 Syllabus, Results & Revaluation \u2014 Academic Office)"
+      },
+      {
+        "role": "agent",
+        "message": "**For everyone:** The syllabus is available on VTOP. Go to **Academics \u2192 Curriculum** to view and download the syllabus for your program and branch.\n\n(Source: Academics \u2014 Syllabus, Results & Revaluation \u2014 Academic Office)"
+      },
+      {
+        "role": "user",
+        "message": "when is breakfast"
+      },
+      {
+        "role": "agent",
+        "message": "Just to make sure I point you the right way \u2014 is this about Mess Timings, Academics \u2014 Syllabus, Results & Revaluation?"
+      },
+      {
+        "role": "user",
+        "message": "Mess timings"
+      }
+    ]
+  },
+  {
+    "id": "HD-322B51D4",
+    "session_id": "demo-330cn2h4",
+    "created_at": "2026-07-30T16:42:34.714686+00:00",
+    "status": "open",
+    "urgency": "normal",
+    "routed_to": "General Helpdesk",
+    "question": "dinner",
+    "reason_for_escalation": "Question remained ambiguous after a clarification attempt.",
+    "collected_info": {},
+    "conversation_context": [
+      {
+        "role": "user",
+        "message": "When is the fee payment deadline?"
+      },
+      {
+        "role": "agent",
+        "message": "I can help with that. What's your semester?"
+      },
+      {
+        "role": "user",
+        "message": "2nd"
+      },
+      {
+        "role": "agent",
+        "message": "Thanks. And what's your program?"
+      },
+      {
+        "role": "user",
+        "message": "aiml"
+      },
+      {
+        "role": "agent",
+        "message": "**For freshers:** Your full-year fee is paid as a **one-time payment before the start of the academic year**, as part of onboarding \u2014 this happens before you join, not per semester like returning students.\n\n(Source: Semester Fee Payment Deadlines \u2014 Finance Office)"
+      },
+      {
+        "role": "user",
+        "message": "How much attendance do I need for exams?"
+      },
+      {
+        "role": "agent",
+        "message": "I can help with that. What's your department?"
+      },
+      {
+        "role": "user",
+        "message": "aiml"
+      },
+      {
+        "role": "agent",
+        "message": "Minimum attendance required to sit for end-semester exams: **75%** per course.\n\n(Source: Student Leave & Attendance Policy \u2014 Academic Office)"
+      },
+      {
+        "role": "user",
+        "message": "When are hall tickets released?"
+      },
+      {
+        "role": "agent",
+        "message": "Just to make sure I point you the right way \u2014 is this about Examination Schedule & Procedures, Academics \u2014 Syllabus, Results & Revaluation?"
+      },
+      {
+        "role": "user",
+        "message": "examination schedule"
+      },
+      {
+        "role": "agent",
+        "message": "I still can't confidently match this to one topic, so I've escalated it as ticket HD-A95FD913 to Examination Cell."
+      },
+      {
+        "role": "user",
+        "message": "library hours"
+      },
+      {
+        "role": "agent",
+        "message": "**For everyone:** The library is open from **8:30 AM to 8:30 PM**, every day it operates.\n\n(Source: Library Timings & Facilities \u2014 Library)"
+      },
+      {
+        "role": "user",
+        "message": "lunch"
+      },
+      {
+        "role": "agent",
+        "message": "Just to make sure I point you the right way \u2014 is this about Mess Timings, Academics \u2014 Syllabus, Results & Revaluation?"
+      },
+      {
+        "role": "user",
+        "message": "when is lunch"
+      },
+      {
+        "role": "agent",
+        "message": "I still can't confidently match this to one topic, so I've escalated it as ticket HD-E604AE4E to General Helpdesk."
+      },
+      {
+        "role": "user",
+        "message": "snacks"
+      },
+      {
+        "role": "agent",
+        "message": "Just to make sure I point you the right way \u2014 is this about Mess Timings, Academics \u2014 Syllabus, Results & Revaluation?"
+      },
+      {
+        "role": "user",
+        "message": "mess"
+      },
+      {
+        "role": "agent",
+        "message": "I still can't confidently match this to one topic, so I've escalated it as ticket HD-97AC0893 to General Helpdesk."
+      },
+      {
+        "role": "user",
+        "message": "mess hours"
+      },
+      {
+        "role": "agent",
+        "message": "**For freshers:** Meals are only served within these windows \u2014 there's no walk-in service outside these hours, so plan around them, especially if you have back-to-back classes or labs near lunch/dinner time.\n\n(Source: Mess Timings \u2014 Hostel Administration)"
+      },
+      {
+        "role": "user",
+        "message": "mess hours"
+      },
+      {
+        "role": "agent",
+        "message": "**For freshers:** Meals are only served within these windows \u2014 there's no walk-in service outside these hours, so plan around them, especially if you have back-to-back classes or labs near lunch/dinner time.\n\n(Source: Mess Timings \u2014 Hostel Administration)"
+      },
+      {
+        "role": "user",
+        "message": "wifi issue"
+      },
+      {
+        "role": "agent",
+        "message": "Try in order: 1. Confirm you're using the Wi-Fi ID/password sent by CTS via email (not your VTOP login). 2. Re-check the certificate was accepted via TOFU when you first connected. 3. If you've changed devices recently, this is very likely a MAC address registration issue. 4. If still unresolved, email **cts@vitbhopal.ac.in** directly with your device details and the issue.\n\n(Source: IT Services \u2014 Portal Password & Wi-Fi \u2014 CTS (Computer & Technical Services))"
+      },
+      {
+        "role": "user",
+        "message": "forgot password"
+      },
+      {
+        "role": "agent",
+        "message": "**For everyone:** Use the \"Forgot Password\" option directly on the VTOP login page. If that doesn't resolve it, contact CTS at **cts@vitbhopal.ac.in**.\n\n(Source: IT Services \u2014 Portal Password & Wi-Fi \u2014 CTS (Computer & Technical Services))"
+      },
+      {
+        "role": "user",
+        "message": "id card"
+      },
+      {
+        "role": "agent",
+        "message": "New students receive their ID card during orientation week from the Administration Office.\n\n(Source: Student ID Card & Campus Access \u2014 Administration Office)"
+      },
+      {
+        "role": "user",
+        "message": "clinic hours"
+      },
+      {
+        "role": "agent",
+        "message": "**For everyone:** Yes \u2014 the clinic operates round the clock, so emergency medical support is available at any hour, not just during standard daytime hours.\n\n(Source: Clinic Timings & Emergency Medical Support \u2014 Campus Clinic)"
+      },
+      {
+        "role": "user",
+        "message": "doctor"
+      },
+      {
+        "role": "agent",
+        "message": "Just to make sure I point you the right way \u2014 is this about Clinic Timings & Emergency Medical Support, Mess Timings?"
+      },
+      {
+        "role": "user",
+        "message": "what are clinic timings"
+      },
+      {
+        "role": "agent",
+        "message": "**For everyone:** The campus clinic (Dr. Morepen) operates **24x7**, with medicines available on-site.\n\n(Source: Clinic Timings & Emergency Medical Support \u2014 Campus Clinic)"
+      },
+      {
+        "role": "user",
+        "message": "when is dee due"
+      },
+      {
+        "role": "agent",
+        "message": "Just to make sure I point you the right way \u2014 is this about Semester Fee Payment Deadlines, Examination Schedule & Procedures?"
+      },
+      {
+        "role": "user",
+        "message": "how do i pay fees"
+      },
+      {
+        "role": "agent",
+        "message": "I still can't confidently match this to one topic, so I've escalated it as ticket HD-1EE0289D to Finance Office."
+      },
+      {
+        "role": "user",
+        "message": "syllabus pdf"
+      },
+      {
+        "role": "user",
+        "message": "syllabus pdf"
+      },
+      {
+        "role": "user",
+        "message": "course curriculum"
+      },
+      {
+        "role": "agent",
+        "message": "**For everyone:** The syllabus is available on VTOP. Go to **Academics \u2192 Curriculum** to view and download the syllabus for your program and branch.\n\n(Source: Academics \u2014 Syllabus, Results & Revaluation \u2014 Academic Office)"
+      },
+      {
+        "role": "agent",
+        "message": "**For everyone:** The syllabus is available on VTOP. Go to **Academics \u2192 Curriculum** to view and download the syllabus for your program and branch.\n\n(Source: Academics \u2014 Syllabus, Results & Revaluation \u2014 Academic Office)"
+      },
+      {
+        "role": "agent",
+        "message": "**For everyone:** The syllabus is available on VTOP. Go to **Academics \u2192 Curriculum** to view and download the syllabus for your program and branch.\n\n(Source: Academics \u2014 Syllabus, Results & Revaluation \u2014 Academic Office)"
+      },
+      {
+        "role": "user",
+        "message": "when is breakfast"
+      },
+      {
+        "role": "agent",
+        "message": "Just to make sure I point you the right way \u2014 is this about Mess Timings, Academics \u2014 Syllabus, Results & Revaluation?"
+      },
+      {
+        "role": "user",
+        "message": "Mess timings"
+      },
+      {
+        "role": "agent",
+        "message": "I still can't confidently match this to one topic, so I've escalated it as ticket HD-8AF8EEB9 to General Helpdesk."
+      },
+      {
+        "role": "user",
+        "message": "what are mess timings"
+      },
+      {
+        "role": "agent",
+        "message": "Just to make sure I point you the right way \u2014 is this about Mess Timings, Hostel & Accommodation Policy?"
+      },
+      {
+        "role": "user",
+        "message": "dinner"
+      }
+    ]
+  },
+  {
+    "id": "HD-CD940371",
+    "session_id": "demo-330cn2h4",
+    "created_at": "2026-07-30T16:42:38.760341+00:00",
+    "status": "open",
+    "urgency": "normal",
+    "routed_to": "General Helpdesk",
+    "question": "lunch",
+    "reason_for_escalation": "Question remained ambiguous after a clarification attempt.",
+    "collected_info": {},
+    "conversation_context": [
+      {
+        "role": "user",
+        "message": "When is the fee payment deadline?"
+      },
+      {
+        "role": "agent",
+        "message": "I can help with that. What's your semester?"
+      },
+      {
+        "role": "user",
+        "message": "2nd"
+      },
+      {
+        "role": "agent",
+        "message": "Thanks. And what's your program?"
+      },
+      {
+        "role": "user",
+        "message": "aiml"
+      },
+      {
+        "role": "agent",
+        "message": "**For freshers:** Your full-year fee is paid as a **one-time payment before the start of the academic year**, as part of onboarding \u2014 this happens before you join, not per semester like returning students.\n\n(Source: Semester Fee Payment Deadlines \u2014 Finance Office)"
+      },
+      {
+        "role": "user",
+        "message": "How much attendance do I need for exams?"
+      },
+      {
+        "role": "agent",
+        "message": "I can help with that. What's your department?"
+      },
+      {
+        "role": "user",
+        "message": "aiml"
+      },
+      {
+        "role": "agent",
+        "message": "Minimum attendance required to sit for end-semester exams: **75%** per course.\n\n(Source: Student Leave & Attendance Policy \u2014 Academic Office)"
+      },
+      {
+        "role": "user",
+        "message": "When are hall tickets released?"
+      },
+      {
+        "role": "agent",
+        "message": "Just to make sure I point you the right way \u2014 is this about Examination Schedule & Procedures, Academics \u2014 Syllabus, Results & Revaluation?"
+      },
+      {
+        "role": "user",
+        "message": "examination schedule"
+      },
+      {
+        "role": "agent",
+        "message": "I still can't confidently match this to one topic, so I've escalated it as ticket HD-A95FD913 to Examination Cell."
+      },
+      {
+        "role": "user",
+        "message": "library hours"
+      },
+      {
+        "role": "agent",
+        "message": "**For everyone:** The library is open from **8:30 AM to 8:30 PM**, every day it operates.\n\n(Source: Library Timings & Facilities \u2014 Library)"
+      },
+      {
+        "role": "user",
+        "message": "lunch"
+      },
+      {
+        "role": "agent",
+        "message": "Just to make sure I point you the right way \u2014 is this about Mess Timings, Academics \u2014 Syllabus, Results & Revaluation?"
+      },
+      {
+        "role": "user",
+        "message": "when is lunch"
+      },
+      {
+        "role": "agent",
+        "message": "I still can't confidently match this to one topic, so I've escalated it as ticket HD-E604AE4E to General Helpdesk."
+      },
+      {
+        "role": "user",
+        "message": "snacks"
+      },
+      {
+        "role": "agent",
+        "message": "Just to make sure I point you the right way \u2014 is this about Mess Timings, Academics \u2014 Syllabus, Results & Revaluation?"
+      },
+      {
+        "role": "user",
+        "message": "mess"
+      },
+      {
+        "role": "agent",
+        "message": "I still can't confidently match this to one topic, so I've escalated it as ticket HD-97AC0893 to General Helpdesk."
+      },
+      {
+        "role": "user",
+        "message": "mess hours"
+      },
+      {
+        "role": "agent",
+        "message": "**For freshers:** Meals are only served within these windows \u2014 there's no walk-in service outside these hours, so plan around them, especially if you have back-to-back classes or labs near lunch/dinner time.\n\n(Source: Mess Timings \u2014 Hostel Administration)"
+      },
+      {
+        "role": "user",
+        "message": "mess hours"
+      },
+      {
+        "role": "agent",
+        "message": "**For freshers:** Meals are only served within these windows \u2014 there's no walk-in service outside these hours, so plan around them, especially if you have back-to-back classes or labs near lunch/dinner time.\n\n(Source: Mess Timings \u2014 Hostel Administration)"
+      },
+      {
+        "role": "user",
+        "message": "wifi issue"
+      },
+      {
+        "role": "agent",
+        "message": "Try in order: 1. Confirm you're using the Wi-Fi ID/password sent by CTS via email (not your VTOP login). 2. Re-check the certificate was accepted via TOFU when you first connected. 3. If you've changed devices recently, this is very likely a MAC address registration issue. 4. If still unresolved, email **cts@vitbhopal.ac.in** directly with your device details and the issue.\n\n(Source: IT Services \u2014 Portal Password & Wi-Fi \u2014 CTS (Computer & Technical Services))"
+      },
+      {
+        "role": "user",
+        "message": "forgot password"
+      },
+      {
+        "role": "agent",
+        "message": "**For everyone:** Use the \"Forgot Password\" option directly on the VTOP login page. If that doesn't resolve it, contact CTS at **cts@vitbhopal.ac.in**.\n\n(Source: IT Services \u2014 Portal Password & Wi-Fi \u2014 CTS (Computer & Technical Services))"
+      },
+      {
+        "role": "user",
+        "message": "id card"
+      },
+      {
+        "role": "agent",
+        "message": "New students receive their ID card during orientation week from the Administration Office.\n\n(Source: Student ID Card & Campus Access \u2014 Administration Office)"
+      },
+      {
+        "role": "user",
+        "message": "clinic hours"
+      },
+      {
+        "role": "agent",
+        "message": "**For everyone:** Yes \u2014 the clinic operates round the clock, so emergency medical support is available at any hour, not just during standard daytime hours.\n\n(Source: Clinic Timings & Emergency Medical Support \u2014 Campus Clinic)"
+      },
+      {
+        "role": "user",
+        "message": "doctor"
+      },
+      {
+        "role": "agent",
+        "message": "Just to make sure I point you the right way \u2014 is this about Clinic Timings & Emergency Medical Support, Mess Timings?"
+      },
+      {
+        "role": "user",
+        "message": "what are clinic timings"
+      },
+      {
+        "role": "agent",
+        "message": "**For everyone:** The campus clinic (Dr. Morepen) operates **24x7**, with medicines available on-site.\n\n(Source: Clinic Timings & Emergency Medical Support \u2014 Campus Clinic)"
+      },
+      {
+        "role": "user",
+        "message": "when is dee due"
+      },
+      {
+        "role": "agent",
+        "message": "Just to make sure I point you the right way \u2014 is this about Semester Fee Payment Deadlines, Examination Schedule & Procedures?"
+      },
+      {
+        "role": "user",
+        "message": "how do i pay fees"
+      },
+      {
+        "role": "agent",
+        "message": "I still can't confidently match this to one topic, so I've escalated it as ticket HD-1EE0289D to Finance Office."
+      },
+      {
+        "role": "user",
+        "message": "syllabus pdf"
+      },
+      {
+        "role": "user",
+        "message": "syllabus pdf"
+      },
+      {
+        "role": "user",
+        "message": "course curriculum"
+      },
+      {
+        "role": "agent",
+        "message": "**For everyone:** The syllabus is available on VTOP. Go to **Academics \u2192 Curriculum** to view and download the syllabus for your program and branch.\n\n(Source: Academics \u2014 Syllabus, Results & Revaluation \u2014 Academic Office)"
+      },
+      {
+        "role": "agent",
+        "message": "**For everyone:** The syllabus is available on VTOP. Go to **Academics \u2192 Curriculum** to view and download the syllabus for your program and branch.\n\n(Source: Academics \u2014 Syllabus, Results & Revaluation \u2014 Academic Office)"
+      },
+      {
+        "role": "agent",
+        "message": "**For everyone:** The syllabus is available on VTOP. Go to **Academics \u2192 Curriculum** to view and download the syllabus for your program and branch.\n\n(Source: Academics \u2014 Syllabus, Results & Revaluation \u2014 Academic Office)"
+      },
+      {
+        "role": "user",
+        "message": "when is breakfast"
+      },
+      {
+        "role": "agent",
+        "message": "Just to make sure I point you the right way \u2014 is this about Mess Timings, Academics \u2014 Syllabus, Results & Revaluation?"
+      },
+      {
+        "role": "user",
+        "message": "Mess timings"
+      },
+      {
+        "role": "agent",
+        "message": "I still can't confidently match this to one topic, so I've escalated it as ticket HD-8AF8EEB9 to General Helpdesk."
+      },
+      {
+        "role": "user",
+        "message": "what are mess timings"
+      },
+      {
+        "role": "agent",
+        "message": "Just to make sure I point you the right way \u2014 is this about Mess Timings, Hostel & Accommodation Policy?"
+      },
+      {
+        "role": "user",
+        "message": "dinner"
+      },
+      {
+        "role": "agent",
+        "message": "I still can't confidently match this to one topic, so I've escalated it as ticket HD-322B51D4 to General Helpdesk."
+      },
+      {
+        "role": "user",
+        "message": "snacks"
+      },
+      {
+        "role": "agent",
+        "message": "Just to make sure I point you the right way \u2014 is this about Mess Timings, Academics \u2014 Syllabus, Results & Revaluation?"
+      },
+      {
+        "role": "user",
+        "message": "lunch"
+      }
+    ]
+  },
+  {
+    "id": "HD-8AE219A7",
+    "session_id": "demo-330cn2h4",
+    "created_at": "2026-07-30T16:45:24.306857+00:00",
+    "status": "open",
+    "urgency": "normal",
+    "routed_to": "Examination Cell",
+    "question": "result declaration date",
+    "reason_for_escalation": "Question remained ambiguous after a clarification attempt.",
+    "collected_info": {},
+    "conversation_context": [
+      {
+        "role": "user",
+        "message": "When is the fee payment deadline?"
+      },
+      {
+        "role": "agent",
+        "message": "I can help with that. What's your semester?"
+      },
+      {
+        "role": "user",
+        "message": "2nd"
+      },
+      {
+        "role": "agent",
+        "message": "Thanks. And what's your program?"
+      },
+      {
+        "role": "user",
+        "message": "aiml"
+      },
+      {
+        "role": "agent",
+        "message": "**For freshers:** Your full-year fee is paid as a **one-time payment before the start of the academic year**, as part of onboarding \u2014 this happens before you join, not per semester like returning students.\n\n(Source: Semester Fee Payment Deadlines \u2014 Finance Office)"
+      },
+      {
+        "role": "user",
+        "message": "How much attendance do I need for exams?"
+      },
+      {
+        "role": "agent",
+        "message": "I can help with that. What's your department?"
+      },
+      {
+        "role": "user",
+        "message": "aiml"
+      },
+      {
+        "role": "agent",
+        "message": "Minimum attendance required to sit for end-semester exams: **75%** per course.\n\n(Source: Student Leave & Attendance Policy \u2014 Academic Office)"
+      },
+      {
+        "role": "user",
+        "message": "When are hall tickets released?"
+      },
+      {
+        "role": "agent",
+        "message": "Just to make sure I point you the right way \u2014 is this about Examination Schedule & Procedures, Academics \u2014 Syllabus, Results & Revaluation?"
+      },
+      {
+        "role": "user",
+        "message": "examination schedule"
+      },
+      {
+        "role": "agent",
+        "message": "I still can't confidently match this to one topic, so I've escalated it as ticket HD-A95FD913 to Examination Cell."
+      },
+      {
+        "role": "user",
+        "message": "library hours"
+      },
+      {
+        "role": "agent",
+        "message": "**For everyone:** The library is open from **8:30 AM to 8:30 PM**, every day it operates.\n\n(Source: Library Timings & Facilities \u2014 Library)"
+      },
+      {
+        "role": "user",
+        "message": "lunch"
+      },
+      {
+        "role": "agent",
+        "message": "Just to make sure I point you the right way \u2014 is this about Mess Timings, Academics \u2014 Syllabus, Results & Revaluation?"
+      },
+      {
+        "role": "user",
+        "message": "when is lunch"
+      },
+      {
+        "role": "agent",
+        "message": "I still can't confidently match this to one topic, so I've escalated it as ticket HD-E604AE4E to General Helpdesk."
+      },
+      {
+        "role": "user",
+        "message": "snacks"
+      },
+      {
+        "role": "agent",
+        "message": "Just to make sure I point you the right way \u2014 is this about Mess Timings, Academics \u2014 Syllabus, Results & Revaluation?"
+      },
+      {
+        "role": "user",
+        "message": "mess"
+      },
+      {
+        "role": "agent",
+        "message": "I still can't confidently match this to one topic, so I've escalated it as ticket HD-97AC0893 to General Helpdesk."
+      },
+      {
+        "role": "user",
+        "message": "mess hours"
+      },
+      {
+        "role": "agent",
+        "message": "**For freshers:** Meals are only served within these windows \u2014 there's no walk-in service outside these hours, so plan around them, especially if you have back-to-back classes or labs near lunch/dinner time.\n\n(Source: Mess Timings \u2014 Hostel Administration)"
+      },
+      {
+        "role": "user",
+        "message": "mess hours"
+      },
+      {
+        "role": "agent",
+        "message": "**For freshers:** Meals are only served within these windows \u2014 there's no walk-in service outside these hours, so plan around them, especially if you have back-to-back classes or labs near lunch/dinner time.\n\n(Source: Mess Timings \u2014 Hostel Administration)"
+      },
+      {
+        "role": "user",
+        "message": "wifi issue"
+      },
+      {
+        "role": "agent",
+        "message": "Try in order: 1. Confirm you're using the Wi-Fi ID/password sent by CTS via email (not your VTOP login). 2. Re-check the certificate was accepted via TOFU when you first connected. 3. If you've changed devices recently, this is very likely a MAC address registration issue. 4. If still unresolved, email **cts@vitbhopal.ac.in** directly with your device details and the issue.\n\n(Source: IT Services \u2014 Portal Password & Wi-Fi \u2014 CTS (Computer & Technical Services))"
+      },
+      {
+        "role": "user",
+        "message": "forgot password"
+      },
+      {
+        "role": "agent",
+        "message": "**For everyone:** Use the \"Forgot Password\" option directly on the VTOP login page. If that doesn't resolve it, contact CTS at **cts@vitbhopal.ac.in**.\n\n(Source: IT Services \u2014 Portal Password & Wi-Fi \u2014 CTS (Computer & Technical Services))"
+      },
+      {
+        "role": "user",
+        "message": "id card"
+      },
+      {
+        "role": "agent",
+        "message": "New students receive their ID card during orientation week from the Administration Office.\n\n(Source: Student ID Card & Campus Access \u2014 Administration Office)"
+      },
+      {
+        "role": "user",
+        "message": "clinic hours"
+      },
+      {
+        "role": "agent",
+        "message": "**For everyone:** Yes \u2014 the clinic operates round the clock, so emergency medical support is available at any hour, not just during standard daytime hours.\n\n(Source: Clinic Timings & Emergency Medical Support \u2014 Campus Clinic)"
+      },
+      {
+        "role": "user",
+        "message": "doctor"
+      },
+      {
+        "role": "agent",
+        "message": "Just to make sure I point you the right way \u2014 is this about Clinic Timings & Emergency Medical Support, Mess Timings?"
+      },
+      {
+        "role": "user",
+        "message": "what are clinic timings"
+      },
+      {
+        "role": "agent",
+        "message": "**For everyone:** The campus clinic (Dr. Morepen) operates **24x7**, with medicines available on-site.\n\n(Source: Clinic Timings & Emergency Medical Support \u2014 Campus Clinic)"
+      },
+      {
+        "role": "user",
+        "message": "when is dee due"
+      },
+      {
+        "role": "agent",
+        "message": "Just to make sure I point you the right way \u2014 is this about Semester Fee Payment Deadlines, Examination Schedule & Procedures?"
+      },
+      {
+        "role": "user",
+        "message": "how do i pay fees"
+      },
+      {
+        "role": "agent",
+        "message": "I still can't confidently match this to one topic, so I've escalated it as ticket HD-1EE0289D to Finance Office."
+      },
+      {
+        "role": "user",
+        "message": "syllabus pdf"
+      },
+      {
+        "role": "user",
+        "message": "syllabus pdf"
+      },
+      {
+        "role": "user",
+        "message": "course curriculum"
+      },
+      {
+        "role": "agent",
+        "message": "**For everyone:** The syllabus is available on VTOP. Go to **Academics \u2192 Curriculum** to view and download the syllabus for your program and branch.\n\n(Source: Academics \u2014 Syllabus, Results & Revaluation \u2014 Academic Office)"
+      },
+      {
+        "role": "agent",
+        "message": "**For everyone:** The syllabus is available on VTOP. Go to **Academics \u2192 Curriculum** to view and download the syllabus for your program and branch.\n\n(Source: Academics \u2014 Syllabus, Results & Revaluation \u2014 Academic Office)"
+      },
+      {
+        "role": "agent",
+        "message": "**For everyone:** The syllabus is available on VTOP. Go to **Academics \u2192 Curriculum** to view and download the syllabus for your program and branch.\n\n(Source: Academics \u2014 Syllabus, Results & Revaluation \u2014 Academic Office)"
+      },
+      {
+        "role": "user",
+        "message": "when is breakfast"
+      },
+      {
+        "role": "agent",
+        "message": "Just to make sure I point you the right way \u2014 is this about Mess Timings, Academics \u2014 Syllabus, Results & Revaluation?"
+      },
+      {
+        "role": "user",
+        "message": "Mess timings"
+      },
+      {
+        "role": "agent",
+        "message": "I still can't confidently match this to one topic, so I've escalated it as ticket HD-8AF8EEB9 to General Helpdesk."
+      },
+      {
+        "role": "user",
+        "message": "what are mess timings"
+      },
+      {
+        "role": "agent",
+        "message": "Just to make sure I point you the right way \u2014 is this about Mess Timings, Hostel & Accommodation Policy?"
+      },
+      {
+        "role": "user",
+        "message": "dinner"
+      },
+      {
+        "role": "agent",
+        "message": "I still can't confidently match this to one topic, so I've escalated it as ticket HD-322B51D4 to General Helpdesk."
+      },
+      {
+        "role": "user",
+        "message": "snacks"
+      },
+      {
+        "role": "agent",
+        "message": "Just to make sure I point you the right way \u2014 is this about Mess Timings, Academics \u2014 Syllabus, Results & Revaluation?"
+      },
+      {
+        "role": "user",
+        "message": "lunch"
+      },
+      {
+        "role": "agent",
+        "message": "I still can't confidently match this to one topic, so I've escalated it as ticket HD-CD940371 to General Helpdesk."
+      },
+      {
+        "role": "user",
+        "message": "reval process"
+      },
+      {
+        "role": "agent",
+        "message": "Just to make sure I point you the right way \u2014 is this about Academics \u2014 Syllabus, Results & Revaluation, Library Timings & Facilities?"
+      },
+      {
+        "role": "user",
+        "message": "revaluation deadline"
+      },
+      {
+        "role": "agent",
+        "message": "**Common confusion:** \"2 months\" is a general pattern, not a guarantee \u2014 treat it as an estimate, not an official deadline.\n\n(Source: Academics \u2014 Syllabus, Results & Revaluation \u2014 Academic Office)"
+      },
+      {
+        "role": "user",
+        "message": "how to apply for revaluation"
+      },
+      {
+        "role": "agent",
+        "message": "**For everyone:** The revaluation application window opens immediately after results are declared and stays open for **1 week only**. Cost is **\u20b9500 per subject/copy** for revaluation.\n\n(Source: Academics \u2014 Syllabus, Results & Revaluation \u2014 Academic Office)"
+      },
+      {
+        "role": "user",
+        "message": "how to apply for revaluation"
+      },
+      {
+        "role": "agent",
+        "message": "**For everyone:** The revaluation application window opens immediately after results are declared and stays open for **1 week only**. Cost is **\u20b9500 per subject/copy** for revaluation.\n\n(Source: Academics \u2014 Syllabus, Results & Revaluation \u2014 Academic Office)"
+      },
+      {
+        "role": "user",
+        "message": "when will result come"
+      },
+      {
+        "role": "agent",
+        "message": "Just to make sure I point you the right way \u2014 is this about Academics \u2014 Syllabus, Results & Revaluation, Examination Schedule & Procedures?"
+      },
+      {
+        "role": "user",
+        "message": "result declaration date"
+      }
+    ]
   }
 ]

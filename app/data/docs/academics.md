@@ -22,7 +22,7 @@ Aliases: when will results come, result declaration date, when are marks out, ex
 ## Revaluation / Recheck
 Aliases: how to apply for revaluation, recheck marks, reval process, revaluation deadline, apply for reval
 
-**For everyone:** The revaluation application window opens immediately after results are declared and stays open for **1 week only**. Cost is **₹500 per subject/copy** for revaluation.
+**For everyone:** The revaluation application window opens immediately after results are declared and stays open for **1 week only**. Cost is **₹500 per subject/copy** for revaluation.Pay through VTOP.
 
 **For freshers:** If you miss the 1-week window, there's no re-opening — mark your calendar as soon as results are out if you're considering a reval for any subject.
 
