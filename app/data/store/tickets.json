@@ -1,0 +1,323 @@
+[
+  {
+    "id": "HD-181F355C",
+    "session_id": "demo-0spv9pdi",
+    "created_at": "2026-07-30T10:37:24.465647+00:00",
+    "status": "open",
+    "urgency": "normal",
+    "routed_to": "Administration Office",
+    "question": "Can I get a refund for the campus parking fine from last year?",
+    "reason_for_escalation": "Question remained ambiguous after a clarification attempt.",
+    "collected_info": {},
+    "conversation_context": [
+      {
+        "role": "user",
+        "message": "Can I get a refund for the campus parking fine from last year?"
+      },
+      {
+        "role": "agent",
+        "message": "Just to make sure I point you the right way \u2014 is this about Student ID Card & Campus Access, Semester Fee Payment Deadlines?"
+      },
+      {
+        "role": "user",
+        "message": "Can I get a refund for the campus parking fine from last year?"
+      }
+    ]
+  },
+  {
+    "id": "HD-D5AE7522",
+    "session_id": "demo-0spv9pdi",
+    "created_at": "2026-07-30T10:37:27.774908+00:00",
+    "status": "open",
+    "urgency": "normal",
+    "routed_to": "General Helpdesk",
+    "question": "what's the capital of France",
+    "reason_for_escalation": "Query contains little to no recognized campus-domain vocabulary.",
+    "collected_info": {},
+    "conversation_context": [
+      {
+        "role": "user",
+        "message": "Can I get a refund for the campus parking fine from last year?"
+      },
+      {
+        "role": "agent",
+        "message": "Just to make sure I point you the right way \u2014 is this about Student ID Card & Campus Access, Semester Fee Payment Deadlines?"
+      },
+      {
+        "role": "user",
+        "message": "Can I get a refund for the campus parking fine from last year?"
+      },
+      {
+        "role": "agent",
+        "message": "I still can't confidently match this to one topic, so I've escalated it as ticket HD-181F355C to Administration Office."
+      },
+      {
+        "role": "user",
+        "message": "what's the capital of France"
+      }
+    ]
+  },
+  {
+    "id": "HD-5DC95DC8",
+    "session_id": "demo-0spv9pdi",
+    "created_at": "2026-07-30T10:40:42.444125+00:00",
+    "status": "open",
+    "urgency": "normal",
+    "routed_to": "General Helpdesk",
+    "question": "how do i get wifi password",
+    "reason_for_escalation": "Query contains little to no recognized campus-domain vocabulary.",
+    "collected_info": {},
+    "conversation_context": [
+      {
+        "role": "user",
+        "message": "Can I get a refund for the campus parking fine from last year?"
+      },
+      {
+        "role": "agent",
+        "message": "Just to make sure I point you the right way \u2014 is this about Student ID Card & Campus Access, Semester Fee Payment Deadlines?"
+      },
+      {
+        "role": "user",
+        "message": "Can I get a refund for the campus parking fine from last year?"
+      },
+      {
+        "role": "agent",
+        "message": "I still can't confidently match this to one topic, so I've escalated it as ticket HD-181F355C to Administration Office."
+      },
+      {
+        "role": "user",
+        "message": "what's the capital of France"
+      },
+      {
+        "role": "agent",
+        "message": "That doesn't look like something I can answer from our approved campus documents, so I've created ticket HD-D5AE7522 for General Helpdesk to take a look."
+      },
+      {
+        "role": "user",
+        "message": "how do I get a hostel room"
+      },
+      {
+        "role": "agent",
+        "message": "I can help with that. What's your hostel block?"
+      },
+      {
+        "role": "user",
+        "message": "8"
+      },
+      {
+        "role": "agent",
+        "message": "Hostel allotment is done at the start of the academic year based on application priority and seat availability; room-change requests open 2 weeks into the semester via the Hostel Portal. Mess fees are billed quarterly along with hostel fees; mess fee waivers for medical dietary needs require a doctor's note submitted to the Warden's office.\n\n(Source: Hostel & Accommodation Policy \u2014 Hostel Administration)"
+      },
+      {
+        "role": "user",
+        "message": "office"
+      },
+      {
+        "role": "agent",
+        "message": "Just to make sure I point you the right way \u2014 is this about Semester Fee Payment Deadlines, Hostel & Accommodation Policy?"
+      },
+      {
+        "role": "user",
+        "message": "How much attendance do I need for exams?"
+      },
+      {
+        "role": "agent",
+        "message": "I can help with that. What's your department?"
+      },
+      {
+        "role": "user",
+        "message": "AIML"
+      },
+      {
+        "role": "agent",
+        "message": "Minimum attendance required to sit for end-semester exams: **75%** per course. Medical leave: submit a doctor's certificate to the Academic Office within 7 days of returning to class. Medical leave is capped at 10 days per semester for attendance condonation purposes.\n\n(Source: Student Leave & Attendance Policy \u2014 Academic Office)"
+      },
+      {
+        "role": "user",
+        "message": "how do i get wifi password"
+      }
+    ]
+  },
+  {
+    "id": "HD-B93877CB",
+    "session_id": "demo-5jf83zfv",
+    "created_at": "2026-07-30T11:44:34.771230+00:00",
+    "status": "open",
+    "urgency": "normal",
+    "routed_to": "General Helpdesk",
+    "question": "Hostel timings",
+    "reason_for_escalation": "Question remained ambiguous after a clarification attempt.",
+    "collected_info": {},
+    "conversation_context": [
+      {
+        "role": "user",
+        "message": "how do I get my vtop password"
+      },
+      {
+        "role": "agent",
+        "message": "**For everyone:** Use the \"Forgot Password\" option directly on the VTOP login page. If that doesn't resolve it, contact CTS at **cts@vitbhopal.ac.in**.\n\n(Source: IT Services \u2014 Portal Password & Wi-Fi \u2014 CTS (Computer & Technical Services))"
+      },
+      {
+        "role": "user",
+        "message": "my wifi is not working"
+      },
+      {
+        "role": "agent",
+        "message": "**Important:** Wi-Fi access is tied to your device's MAC address. If you switch devices or your Wi-Fi stops working, you'll likely need to register the new device's MAC address \u2014 contact CTS to sort this out.\n\n(Source: IT Services \u2014 Portal Password & Wi-Fi \u2014 CTS (Computer & Technical Services))"
+      },
+      {
+        "role": "user",
+        "message": "hostel timings"
+      },
+      {
+        "role": "agent",
+        "message": "Just to make sure I point you the right way \u2014 is this about Hostel Timings, Maintenance & Room Change, Hostel & Accommodation Policy?"
+      },
+      {
+        "role": "user",
+        "message": "Hostel timings"
+      }
+    ]
+  },
+  {
+    "id": "HD-B162BFF3",
+    "session_id": "demo-l2kvs3x6",
+    "created_at": "2026-07-30T11:54:39.574655+00:00",
+    "status": "open",
+    "urgency": "normal",
+    "routed_to": "Academic Office",
+    "question": "H & A policy",
+    "reason_for_escalation": "Question remained ambiguous after a clarification attempt.",
+    "collected_info": {},
+    "conversation_context": [
+      {
+        "role": "user",
+        "message": "hostel timings"
+      },
+      {
+        "role": "agent",
+        "message": "Just to make sure I point you the right way \u2014 is this about Hostel & Accommodation Policy, Mess Timings?"
+      },
+      {
+        "role": "user",
+        "message": "H & A policy"
+      }
+    ]
+  },
+  {
+    "id": "HD-142A46B2",
+    "session_id": "demo-itz34nac",
+    "created_at": "2026-07-30T11:57:35.849043+00:00",
+    "status": "open",
+    "urgency": "normal",
+    "routed_to": "Hostel Administration",
+    "question": "hostel",
+    "reason_for_escalation": "Question remained ambiguous after a clarification attempt.",
+    "collected_info": {},
+    "conversation_context": [
+      {
+        "role": "user",
+        "message": "hostel timings"
+      },
+      {
+        "role": "agent",
+        "message": "Just to make sure I point you the right way \u2014 is this about Hostel & Accommodation Policy, Mess Timings?"
+      },
+      {
+        "role": "user",
+        "message": "hostel"
+      }
+    ]
+  },
+  {
+    "id": "HD-A05B3393",
+    "session_id": "demo-co4sy5ox",
+    "created_at": "2026-07-30T11:59:01.977696+00:00",
+    "status": "open",
+    "urgency": "normal",
+    "routed_to": "General Helpdesk",
+    "question": "mess timings",
+    "reason_for_escalation": "Question remained ambiguous after a clarification attempt.",
+    "collected_info": {},
+    "conversation_context": [
+      {
+        "role": "user",
+        "message": "hostel policy"
+      },
+      {
+        "role": "agent",
+        "message": "**For freshers:** Hostel allotment is done automatically at the start of the academic year based on application priority and seat availability \u2014 you don't need to apply separately.\n\n(Source: Hostel & Accommodation Policy \u2014 Hostel Administration)"
+      },
+      {
+        "role": "user",
+        "message": "My hostel room has a leaking tap"
+      },
+      {
+        "role": "agent",
+        "message": "**For returning students:** Room-change requests open **2 weeks into the semester** via the Hostel Portal.\n\n(Source: Hostel & Accommodation Policy \u2014 Hostel Administration)"
+      },
+      {
+        "role": "user",
+        "message": "mess timings"
+      },
+      {
+        "role": "agent",
+        "message": "Just to make sure I point you the right way \u2014 is this about Mess Timings, Hostel & Accommodation Policy?"
+      },
+      {
+        "role": "user",
+        "message": "mess timings"
+      }
+    ]
+  },
+  {
+    "id": "HD-215366C3",
+    "session_id": "demo-8gqchzwt",
+    "created_at": "2026-07-30T12:03:49.645561+00:00",
+    "status": "open",
+    "urgency": "normal",
+    "routed_to": "General Helpdesk",
+    "question": "mess timings",
+    "reason_for_escalation": "Question remained ambiguous after a clarification attempt.",
+    "collected_info": {},
+    "conversation_context": [
+      {
+        "role": "user",
+        "message": "hostel timings"
+      },
+      {
+        "role": "agent",
+        "message": "Just to make sure I point you the right way \u2014 is this about Hostel & Accommodation Policy, Mess Timings?"
+      },
+      {
+        "role": "user",
+        "message": "mess timings"
+      }
+    ]
+  },
+  {
+    "id": "HD-60019873",
+    "session_id": "demo-cc7qougl",
+    "created_at": "2026-07-30T12:14:30.457154+00:00",
+    "status": "open",
+    "urgency": "normal",
+    "routed_to": "Hostel Administration",
+    "question": "hostel",
+    "reason_for_escalation": "Question remained ambiguous after a clarification attempt.",
+    "collected_info": {},
+    "conversation_context": [
+      {
+        "role": "user",
+        "message": "hostel timings"
+      },
+      {
+        "role": "agent",
+        "message": "Just to make sure I point you the right way \u2014 is this about Hostel & Accommodation Policy, Mess Timings?"
+      },
+      {
+        "role": "user",
+        "message": "hostel"
+      }
+    ]
+  }
+]
