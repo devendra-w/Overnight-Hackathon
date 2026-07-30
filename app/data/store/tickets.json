@@ -319,5 +319,55 @@
         "message": "hostel"
       }
     ]
+  },
+  {
+    "id": "HD-7E26D2ED",
+    "session_id": "demo-hoorgglq",
+    "created_at": "2026-07-30T15:34:26.805526+00:00",
+    "status": "open",
+    "urgency": "normal",
+    "routed_to": "General Helpdesk",
+    "question": "yes",
+    "reason_for_escalation": "Question remained ambiguous after a clarification attempt.",
+    "collected_info": {},
+    "conversation_context": [
+      {
+        "role": "user",
+        "message": "reval process"
+      },
+      {
+        "role": "agent",
+        "message": "Just to make sure I point you the right way \u2014 is this about Academics \u2014 Syllabus, Results & Revaluation, Library Timings & Facilities?"
+      },
+      {
+        "role": "user",
+        "message": "yes"
+      }
+    ]
+  },
+  {
+    "id": "HD-A3BA1411",
+    "session_id": "demo-h4wyb29g",
+    "created_at": "2026-07-30T15:53:00.527779+00:00",
+    "status": "open",
+    "urgency": "normal",
+    "routed_to": "Hostel Administration",
+    "question": "Hostel",
+    "reason_for_escalation": "Question remained ambiguous after a clarification attempt.",
+    "collected_info": {},
+    "conversation_context": [
+      {
+        "role": "user",
+        "message": "maintenance"
+      },
+      {
+        "role": "agent",
+        "message": "Just to make sure I point you the right way \u2014 is this about Hostel & Accommodation Policy, Academics \u2014 Syllabus, Results & Revaluation?"
+      },
+      {
+        "role": "user",
+        "message": "Hostel"
+      }
+    ]
   }
 ]

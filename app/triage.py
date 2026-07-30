@@ -99,15 +99,13 @@ def _missing_required_info(doc_required: List[str], collected: Dict) -> List[str
 
 
 def _generate_grounded_answer(doc_title: str, body: str, query: str, department: str) -> str:
-    """Generate the answer text. Uses the Anthropic API if a key is present
-    for more natural phrasing; otherwise falls back to a purely extractive
-    answer so the prototype works with zero external dependencies."""
-    api_key = os.environ.get("ANTHROPIC_API_KEY")
+    api_key = os.environ.get("GEMINI_API_KEY")
     if api_key:
         try:
-            import anthropic
+            import google.generativeai as genai
 
-            client = anthropic.Anthropic(api_key=api_key)
+            genai.configure(api_key=api_key)
+            model = genai.GenerativeModel("gemini-2.0-flash")
             system = (
                 "You are a campus helpdesk assistant. Answer ONLY using the "
                 "provided source document text. Do not add information that "
@@ -115,21 +113,13 @@ def _generate_grounded_answer(doc_title: str, body: str, query: str, department:
                 "answer the question, say so plainly. Keep the answer under "
                 "120 words, plain and direct, no preamble."
             )
-            resp = client.messages.create(
-                model="claude-sonnet-4-6",
-                max_tokens=300,
-                system=system,
-                messages=[
-                    {
-                        "role": "user",
-                        "content": f"Source document ({doc_title}):\n{body}\n\n"
-                        f"Question: {query}",
-                    }
-                ],
+            prompt = (
+                f"{system}\n\nSource document ({doc_title}):\n{body}\n\n"
+                f"Question: {query}"
             )
-            text_parts = [b.text for b in resp.content if b.type == "text"]
-            if text_parts:
-                return text_parts[0].strip()
+            resp = model.generate_content(prompt)
+            if resp and resp.text:
+                return resp.text.strip()
         except Exception:
             pass  # fall through to extractive answer
 
