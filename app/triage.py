@@ -193,30 +193,13 @@ def handle_message(session_id: str, message: str) -> Dict:
         return _response(reply, "escalated", ticket=ticket)
 
     if not _is_high_confidence(results):
-        if session["clarify_attempts"] >= 1:
-            ticket = ticket_store.create_ticket(
-                session_id=session_id,
-                question=message,
-                conversation_context=session["history"],
-                collected_info=session["collected_info"],
-                reason="Question remained ambiguous after a clarification attempt.",
-                best_guess_doc_id=top["doc_id"],
-            )
-            reply = (
-                f"I still can't confidently match this to one topic, so I've "
-                f"escalated it as ticket {ticket['id']} to {ticket['routed_to']}."
-            )
-            session["history"].append({"role": "agent", "message": reply})
-            _reset_slotfilling(session)
-            return _response(reply, "escalated", ticket=ticket)
-
-        session["clarify_attempts"] += 1
-        session["pending_doc_id"] = top["doc_id"]
-        session["pending_chunk_text"] = top.get("chunk_text")
-        options = ", ".join(r["title"] for r in results[:2])
-        reply = f"Just to make sure I point you the right way — is this about {options}?"
+        doc = _store.get(top["doc_id"])
+        chunk_text = top.get("chunk_text") or ""
+        answer = _generate_grounded_answer(doc.title, chunk_text or doc.body, message, doc.department)
+        reply = f"{answer}\n\n(Source: {doc.title} — {doc.department})"
         session["history"].append({"role": "agent", "message": reply})
-        return _response(reply, "clarifying")
+        session["clarify_attempts"] = 0
+        return _response(reply, "answered", source=doc.title, department=doc.department)
 
     doc = _store.get(top["doc_id"])
     session["clarify_attempts"] = 0
