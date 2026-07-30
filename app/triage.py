@@ -1,31 +1,30 @@
 """
 triage.py — The decision layer that ties retrieval + confidence +
 slot-filling + escalation together. This is the "agent" logic.
-
-Escalation discipline, in plain terms:
-  HIGH confidence match + all required info present -> answer, grounded & cited.
-  HIGH confidence match + missing info               -> ask for the missing info.
-  MEDIUM confidence (ambiguous)                       -> ask a disambiguating
-                                                          question, once.
-  LOW confidence / still unclear after one attempt    -> escalate to a human
-                                                          team with a ticket.
-  Explicit user request ("talk to a human")           -> escalate immediately.
 """
 
 import os
 import re
 from typing import Dict, List, Optional
 
-from app.rag import DocumentStore, extract_best_snippet
+from app.rag import DocumentStore
 from app import tickets as ticket_store
 
-LOW_CONFIDENCE = 0.12       # below this: no approved source is a plausible match at all
-CONFIDENT_FLOOR = 0.15      # minimum score to ever call a match "confident"
-DOMINANCE_RATIO = 2.0       # top match must beat the runner-up by this multiple
+LOW_CONFIDENCE = 0.12
+CONFIDENT_FLOOR = 0.15
+DOMINANCE_RATIO = 2.0
 
-MIN_MATCHED_TERMS = 2       # top doc must share at least this many real terms with the query
-SOLE_MATCH_FLOOR = 0.30     # when there's no runner-up at all, require a much stronger score
-KNOWN_TERM_RATIO_FLOOR = 0.3  # query must contain some real domain vocabulary at all
+MIN_MATCHED_TERMS_CAP = 2    # never require more than this many matched terms
+SOLE_MATCH_FLOOR = 0.30
+KNOWN_TERM_RATIO_FLOOR = 0.3
+
+
+def _min_matched_terms(query_term_count: int) -> int:
+    # Adaptive floor: a genuine 1-word query ("lunch") can only ever match
+    # 1 term, so requiring 2 was silently rejecting every short query
+    # regardless of score. Cap at MIN_MATCHED_TERMS_CAP for longer queries.
+    return min(MIN_MATCHED_TERMS_CAP, max(query_term_count, 1))
+
 
 def _is_high_confidence(results: List[Dict]) -> bool:
     if not results:
@@ -33,7 +32,8 @@ def _is_high_confidence(results: List[Dict]) -> bool:
     top = results[0]
     if top["score"] < CONFIDENT_FLOOR:
         return False
-    if top.get("matched_terms", 0) < MIN_MATCHED_TERMS:
+    need = _min_matched_terms(top.get("query_term_count", 0))
+    if top.get("matched_terms", 0) < need:
         return False
 
     runner_up = results[1] if len(results) > 1 else None
@@ -42,11 +42,6 @@ def _is_high_confidence(results: List[Dict]) -> bool:
 
     score_dominant = top["score"] >= runner_up["score"] * DOMINANCE_RATIO
 
-    # Full term coverage: the top doc matched every meaningful word in the
-    # query, and the runner-up did not. This catches short queries where a
-    # runner-up doc scores similarly only because it shares one generic
-    # word (e.g. "timings") — the doc matching ALL the query's real words
-    # is the stronger, more reliable signal here, regardless of score ratio.
     total_terms = top.get("query_term_count", 0)
     full_coverage_dominant = (
         total_terms > 0
@@ -72,8 +67,6 @@ HUMAN_REQUEST_PATTERNS = [
 
 _store = DocumentStore()
 
-# In-memory session state (fine for a hackathon prototype / single process).
-# Each session: conversation history + any pending slot-filling state.
 _sessions: Dict[str, Dict] = {}
 
 
@@ -82,6 +75,7 @@ def _get_session(session_id: str) -> Dict:
         _sessions[session_id] = {
             "history": [],
             "pending_doc_id": None,
+            "pending_chunk_text": None,
             "awaiting_info": [],
             "collected_info": {},
             "clarify_attempts": 0,
@@ -98,10 +92,9 @@ def _missing_required_info(doc_required: List[str], collected: Dict) -> List[str
     return [field for field in doc_required if field not in collected]
 
 
-def _generate_grounded_answer(doc_title: str, body: str, query: str, department: str) -> str:
-    """Generate the answer text. Uses the Anthropic API if a key is present
-    for more natural phrasing; otherwise falls back to a purely extractive
-    answer so the prototype works with zero external dependencies."""
+def _generate_grounded_answer(doc_title: str, source_text: str, query: str, department: str) -> str:
+    """Generate the answer text, grounded in the specific retrieved chunk
+    (not the whole document) for tighter accuracy."""
     api_key = os.environ.get("ANTHROPIC_API_KEY")
     if api_key:
         try:
@@ -110,10 +103,10 @@ def _generate_grounded_answer(doc_title: str, body: str, query: str, department:
             client = anthropic.Anthropic(api_key=api_key)
             system = (
                 "You are a campus helpdesk assistant. Answer ONLY using the "
-                "provided source document text. Do not add information that "
-                "is not in the document. If the document does not fully "
-                "answer the question, say so plainly. Keep the answer under "
-                "120 words, plain and direct, no preamble."
+                "provided source text. Do not add information that is not "
+                "in it. If it does not fully answer the question, say so "
+                "plainly. Keep the answer under 120 words, plain and "
+                "direct, no preamble."
             )
             resp = client.messages.create(
                 model="claude-sonnet-4-6",
@@ -122,7 +115,7 @@ def _generate_grounded_answer(doc_title: str, body: str, query: str, department:
                 messages=[
                     {
                         "role": "user",
-                        "content": f"Source document ({doc_title}):\n{body}\n\n"
+                        "content": f"Source ({doc_title}):\n{source_text}\n\n"
                         f"Question: {query}",
                     }
                 ],
@@ -131,16 +124,15 @@ def _generate_grounded_answer(doc_title: str, body: str, query: str, department:
             if text_parts:
                 return text_parts[0].strip()
         except Exception:
-            pass  # fall through to extractive answer
+            pass
 
-    return extract_best_snippet(body, query)
+    return source_text
 
 
 def handle_message(session_id: str, message: str) -> Dict:
     session = _get_session(session_id)
     session["history"].append({"role": "user", "message": message})
 
-    # 1. Explicit request for a human -> escalate immediately, no guessing.
     if _wants_human(message):
         ticket = ticket_store.create_ticket(
             session_id=session_id,
@@ -158,7 +150,6 @@ def handle_message(session_id: str, message: str) -> Dict:
         _reset_slotfilling(session)
         return _response(reply, "escalated", ticket=ticket)
 
-    # 2. Continuing a slot-filling conversation (agent asked for missing info).
     if session["awaiting_info"]:
         field = session["awaiting_info"].pop(0)
         session["collected_info"][field] = message.strip()
@@ -169,17 +160,16 @@ def handle_message(session_id: str, message: str) -> Dict:
             session["history"].append({"role": "agent", "message": reply})
             return _response(reply, "clarifying")
 
-        # All slots filled -> answer using the pending doc.
         doc = _store.get(session["pending_doc_id"])
         if doc:
             original_q = _last_original_question(session)
-            answer = _generate_grounded_answer(doc.title, doc.body, original_q, doc.department)
+            source_text = session.get("pending_chunk_text") or doc.body
+            answer = _generate_grounded_answer(doc.title, source_text, original_q, doc.department)
             reply = f"{answer}\n\n(Source: {doc.title} — {doc.department})"
             session["history"].append({"role": "agent", "message": reply})
             _reset_slotfilling(session)
             return _response(reply, "answered", source=doc.title, department=doc.department)
 
-     # 3. Fresh question -> retrieve.
     results = _store.search(message, top_k=3)
     top = results[0] if results else None
     session["clarify_attempts"] = session.get("clarify_attempts", 0)
@@ -203,7 +193,6 @@ def handle_message(session_id: str, message: str) -> Dict:
         return _response(reply, "escalated", ticket=ticket)
 
     if not _is_high_confidence(results):
-        # Medium confidence: ask one disambiguating question before giving up.
         if session["clarify_attempts"] >= 1:
             ticket = ticket_store.create_ticket(
                 session_id=session_id,
@@ -223,17 +212,18 @@ def handle_message(session_id: str, message: str) -> Dict:
 
         session["clarify_attempts"] += 1
         session["pending_doc_id"] = top["doc_id"]
+        session["pending_chunk_text"] = top.get("chunk_text")
         options = ", ".join(r["title"] for r in results[:2])
         reply = f"Just to make sure I point you the right way — is this about {options}?"
         session["history"].append({"role": "agent", "message": reply})
         return _response(reply, "clarifying")
 
-    # High confidence match.
     doc = _store.get(top["doc_id"])
     session["clarify_attempts"] = 0
     missing = _missing_required_info(doc.required_info, session["collected_info"])
     if missing:
         session["pending_doc_id"] = doc.doc_id
+        session["pending_chunk_text"] = top.get("chunk_text")
         session["awaiting_info"] = missing
         session["_original_question"] = message
         first_field = missing[0]
@@ -241,7 +231,8 @@ def handle_message(session_id: str, message: str) -> Dict:
         session["history"].append({"role": "agent", "message": reply})
         return _response(reply, "clarifying")
 
-    answer = _generate_grounded_answer(doc.title, doc.body, message, doc.department)
+    source_text = top.get("chunk_text") or doc.body
+    answer = _generate_grounded_answer(doc.title, source_text, message, doc.department)
     reply = f"{answer}\n\n(Source: {doc.title} — {doc.department})"
     session["history"].append({"role": "agent", "message": reply})
     return _response(reply, "answered", source=doc.title, department=doc.department)
@@ -255,6 +246,7 @@ def _last_original_question(session: Dict) -> str:
 
 def _reset_slotfilling(session: Dict) -> None:
     session["pending_doc_id"] = None
+    session["pending_chunk_text"] = None
     session["awaiting_info"] = []
     session["collected_info"] = {}
     session["clarify_attempts"] = 0
