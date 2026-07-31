@@ -2,11 +2,11 @@
 title: Academics — Syllabus, Results & Revaluation
 department: Academic Office
 required_info: []
-tags: [academics, syllabus, curriculum, results, revaluation, recheck, exam marks]
+tags: [academics, syllabus, curriculum, results, revaluation, recheck, exam marks, academic calendar]
 ---
 
 ## Syllabus / Curriculum Download
-Aliases: where can I download syllabus, syllabus pdf, course curriculum, subject syllabus, where is the curriculum
+Aliases: where can I download syllabus, syllabus pdf, course curriculum, subject syllabus, where is the curriculum,
 
 **For everyone:** The syllabus is available on VTOP. Go to **Academics → Curriculum** to view and download the syllabus for your program and branch.
 
@@ -27,3 +27,10 @@ Aliases: how to apply for revaluation, recheck marks, reval process, revaluation
 **For freshers:** If you miss the 1-week window, there's no re-opening — mark your calendar as soon as results are out if you're considering a reval for any subject.
 
 **Common confusion:** Revaluation is per subject, so if you want multiple subjects rechecked, it's ₹500 each, not a flat fee.
+
+## Academic Calendar 
+
+Aliases: how to get claendar, academic calendar, calendar
+
+**For everyone:** Academic calendar will be provided by Dean Academics through mail on your college mail id. Or you can access it through **VTOP → Content → Academic Calendar** or **https://vtop.vitbhopal.ac.in/vtop/content**
+
